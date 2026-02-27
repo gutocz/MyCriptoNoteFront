@@ -1,0 +1,17 @@
+@use 'styles/variables' as *;
+
+.empty-state {
+  padding: 2rem;
+  text-align: center;
+  color: $color-text;
+}
+
+.empty-state img {
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+
+.empty-state .hint {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}

@@ -1,0 +1,4 @@
+<a [routerLink]="['/notes/folder', folder().id]" class="brutal-card folder-card clickable">
+  <h3>{{ folder().name }}</h3>
+  <span class="date">{{ formatDate(folder().createdAt) }}</span>
+</a>

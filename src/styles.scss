@@ -1,0 +1,27 @@
+@use 'styles/variables' as *;
+@use 'styles/typography';
+@use 'styles/animations';
+@use 'styles/brutalist';
+
+@import 'ngx-toastr/toastr';
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: $color-bg;
+  cursor: url('assets/cursors/cursor-default.svg'), auto;
+}
+
+a, button, [role="button"], .clickable {
+  cursor: url('assets/cursors/cursor-pointer.svg'), pointer;
+}

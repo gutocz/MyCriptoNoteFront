@@ -1,0 +1,40 @@
+@use 'styles/variables' as *;
+
+.selector {
+  position: relative;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: $border-width solid $color-border;
+  font-family: $font-sans;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: $color-white;
+  border: $border-width solid $color-border;
+  box-shadow: $shadow-solid;
+  z-index: 10;
+  button {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    border: none;
+    background: none;
+    font-family: $font-sans;
+    cursor: pointer;
+    &.active { font-weight: 700; background: $color-bg; }
+    &:hover { background: $color-bg; }
+  }
+}

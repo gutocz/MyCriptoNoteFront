@@ -1,0 +1,23 @@
+$color-bg: #F5F0EB;
+$color-bg-dark: #1a1a1a;
+$color-black: #000;
+$color-white: #fff;
+$color-accent-purple: #A78BFA;
+$color-accent-lime: #D4FF2B;
+$color-border: $color-black;
+$color-text: $color-black;
+$color-text-inverse: $color-white;
+
+$border-width: 3px;
+$border-radius: 0;
+$border-radius-sm: 4px;
+
+$shadow-offset: 4px;
+$shadow-solid: #{$shadow-offset} #{$shadow-offset} 0px $color-black;
+$shadow-solid-lg: 6px 6px 0px $color-black;
+
+$font-sans: 'Space Grotesk', sans-serif;
+$font-mono: 'Space Mono', monospace;
+
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;

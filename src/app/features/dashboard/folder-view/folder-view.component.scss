@@ -1,0 +1,29 @@
+@use 'styles/variables' as *;
+
+.folder-view {
+  min-height: 100vh;
+}
+
+.main {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.breadcrumb {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.breadcrumb a {
+  color: $color-accent-purple;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.note-item h3 { margin: 0 0 0.5rem 0; }
+.content-mask { font-size: 0.875rem; opacity: 0.7; margin: 0; }

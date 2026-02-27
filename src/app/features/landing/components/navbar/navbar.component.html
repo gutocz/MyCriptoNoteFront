@@ -1,0 +1,14 @@
+<nav class="navbar">
+  <a routerLink="/" class="logo">
+    <img src="assets/images/logo.svg" alt="MCN" width="80" height="24" />
+  </a>
+  <div class="links">
+    <a href="#features" class="nav-link">{{ 'navbar.features' | translate }}</a>
+    <a href="#how-it-works" class="nav-link">{{ 'navbar.howItWorks' | translate }}</a>
+    <a href="#security" class="nav-link">{{ 'navbar.security' | translate }}</a>
+  </div>
+  <div class="actions">
+    <app-language-selector />
+    <a routerLink="/login" class="brutal-btn">{{ 'navbar.signIn' | translate }}</a>
+  </div>
+</nav>

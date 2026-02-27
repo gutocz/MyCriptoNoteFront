@@ -1,0 +1,80 @@
+{
+  "navbar": {
+    "features": "Features",
+    "howItWorks": "How it works",
+    "security": "Security",
+    "signIn": "Sign In"
+  },
+  "hero": {
+    "headline": "Your notes, only yours.",
+    "subtitle": "Zero-Knowledge encryption. Create notes and folders protected by password. Not even we can read them.",
+    "cta": "Create free account"
+  },
+  "features": {
+    "title": "Features",
+    "encryption": { "title": "Encryption", "desc": "Each note with its own password." },
+    "folders": { "title": "Folders", "desc": "Group notes with a shared password." },
+    "zeroKnowledge": { "title": "Zero-Knowledge", "desc": "The server never sees the content." }
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "step1": { "title": "Create your account", "desc": "Email and password. Simple." },
+    "step2": { "title": "Create notes", "desc": "Title, content and a password per note." },
+    "step3": { "title": "Unlock when you need", "desc": "Enter the password and read or edit." }
+  },
+  "security": {
+    "title": "Security",
+    "text": "Zero-Knowledge with AES. Your passwords never leave your device to decrypt. The backend only stores encrypted data."
+  },
+  "footer": {
+    "links": "Links",
+    "copyright": "MyCriptoNote. All rights reserved."
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign In",
+      "noAccount": "Don't have an account?",
+      "register": "Register"
+    },
+    "register": {
+      "title": "Create account",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "submit": "Register",
+      "hasAccount": "Already have an account?",
+      "login": "Sign In"
+    }
+  },
+  "dashboard": {
+    "title": "My notes",
+    "search": "Search notes...",
+    "folders": "Folders",
+    "notes": "Notes",
+    "emptyNotes": "No notes yet.",
+    "emptyFolders": "No folders yet.",
+    "createFirst": "Create your first note or folder."
+  },
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "loading": "Loading...",
+    "save": "Save",
+    "delete": "Delete"
+  },
+  "errors": {
+    "invalidCredentials": "Invalid email or password.",
+    "emailInUse": "This email is already in use.",
+    "wrongPassword": "Incorrect password.",
+    "network": "Connection error. Try again."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "message": "The page you are looking for does not exist.",
+    "back": "Back to home"
+  }
+}

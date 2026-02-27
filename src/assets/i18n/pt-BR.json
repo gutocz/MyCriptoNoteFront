@@ -1,0 +1,80 @@
+{
+  "navbar": {
+    "features": "Recursos",
+    "howItWorks": "Como funciona",
+    "security": "Segurança",
+    "signIn": "Entrar"
+  },
+  "hero": {
+    "headline": "Suas notas, só suas.",
+    "subtitle": "Criptografia Zero-Knowledge. Crie notas e pastas protegidas por senha. Nem nós conseguimos ler.",
+    "cta": "Criar conta grátis"
+  },
+  "features": {
+    "title": "Recursos",
+    "encryption": { "title": "Criptografia", "desc": "Cada nota com sua própria senha." },
+    "folders": { "title": "Pastas", "desc": "Agrupe notas com senha compartilhada." },
+    "zeroKnowledge": { "title": "Zero-Knowledge", "desc": "O servidor nunca vê o conteúdo." }
+  },
+  "howItWorks": {
+    "title": "Como funciona",
+    "step1": { "title": "Crie sua conta", "desc": "E-mail e senha. Simples." },
+    "step2": { "title": "Crie notas", "desc": "Título, conteúdo e uma senha por nota." },
+    "step3": { "title": "Desbloqueie quando precisar", "desc": "Digite a senha e leia ou edite." }
+  },
+  "security": {
+    "title": "Segurança",
+    "text": "Zero-Knowledge com AES. Suas senhas nunca saem do seu dispositivo para descriptografar. O backend só armazena dados criptografados."
+  },
+  "footer": {
+    "links": "Links",
+    "copyright": "MyCriptoNote. Todos os direitos reservados."
+  },
+  "auth": {
+    "login": {
+      "title": "Entrar",
+      "email": "E-mail",
+      "password": "Senha",
+      "submit": "Entrar",
+      "noAccount": "Não tem conta?",
+      "register": "Cadastre-se"
+    },
+    "register": {
+      "title": "Criar conta",
+      "email": "E-mail",
+      "password": "Senha",
+      "confirmPassword": "Confirmar senha",
+      "submit": "Cadastrar",
+      "hasAccount": "Já tem conta?",
+      "login": "Entrar"
+    }
+  },
+  "dashboard": {
+    "title": "Minhas notas",
+    "search": "Buscar notas...",
+    "folders": "Pastas",
+    "notes": "Notas",
+    "emptyNotes": "Nenhuma nota ainda.",
+    "emptyFolders": "Nenhuma pasta ainda.",
+    "createFirst": "Crie sua primeira nota ou pasta."
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "close": "Fechar",
+    "loading": "Carregando...",
+    "save": "Salvar",
+    "delete": "Excluir"
+  },
+  "errors": {
+    "invalidCredentials": "E-mail ou senha inválidos.",
+    "emailInUse": "Este e-mail já está em uso.",
+    "wrongPassword": "Senha incorreta.",
+    "network": "Erro de conexão. Tente novamente."
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "message": "A página que você procura não existe.",
+    "back": "Voltar ao início"
+  }
+}

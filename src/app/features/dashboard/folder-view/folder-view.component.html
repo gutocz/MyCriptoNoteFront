@@ -1,0 +1,18 @@
+<div class="folder-view">
+  <app-dashboard-header />
+  <main class="main">
+    <nav class="breadcrumb">
+      <a routerLink="/notes">Notes</a>
+      <span>/</span>
+      <span>{{ folder()?.name ?? '...' }}</span>
+    </nav>
+    <div class="notes-grid">
+      @for (n of notes(); track n.id) {
+        <div class="brutal-card note-item">
+          <h3>{{ n.title }}</h3>
+          <p class="content-mask">••••••••</p>
+        </div>
+      }
+    </div>
+  </main>
+</div>

@@ -54,9 +54,40 @@
     "search": "Buscar notas...",
     "folders": "Pastas",
     "notes": "Notas",
+    "newFolder": "Nova pasta",
+    "newNote": "Nova nota",
+    "create": "Criar",
+    "folderName": "Nome da pasta",
+    "folderPassword": "Senha da pasta",
+    "noteTitle": "Título da nota",
+    "noteContent": "Conteúdo",
+    "notePassword": "Senha da nota",
     "emptyNotes": "Nenhuma nota ainda.",
     "emptyFolders": "Nenhuma pasta ainda.",
-    "createFirst": "Crie sua primeira nota ou pasta."
+    "createFirst": "Crie sua primeira nota ou pasta.",
+    "logout": "Sair"
+  },
+  "notes": {
+    "enterPassword": "Digite a senha para desbloquear esta nota.",
+    "password": "Senha",
+    "unlock": "Desbloquear",
+    "edit": "Editar",
+    "editNote": "Editar nota",
+    "deleteTitle": "Excluir nota",
+    "deleteMessage": "Tem certeza que deseja excluir esta nota? Essa ação não pode ser desfeita."
+  },
+  "folders": {
+    "deleteTitle": "Excluir pasta",
+    "deleteMessage": "Tem certeza que deseja excluir esta pasta e todas as suas notas?"
+  },
+  "toasts": {
+    "noteCreated": "Nota criada com sucesso.",
+    "noteUpdated": "Nota atualizada com sucesso.",
+    "noteDeleted": "Nota excluída com sucesso.",
+    "folderCreated": "Pasta criada com sucesso.",
+    "folderDeleted": "Pasta excluída com sucesso.",
+    "loginSuccess": "Login realizado com sucesso.",
+    "registerSuccess": "Conta criada com sucesso."
   },
   "common": {
     "cancel": "Cancelar",
@@ -70,6 +101,7 @@
     "invalidCredentials": "E-mail ou senha inválidos.",
     "emailInUse": "Este e-mail já está em uso.",
     "wrongPassword": "Senha incorreta.",
+    "passwordMismatch": "As senhas não conferem.",
     "network": "Erro de conexão. Tente novamente."
   },
   "notFound": {

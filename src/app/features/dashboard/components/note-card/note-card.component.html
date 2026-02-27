@@ -1,5 +1,8 @@
-<div class="brutal-card note-card">
-  <h3>{{ note().title }}</h3>
-  <p class="content-mask">••••••••</p>
+<div class="brutal-card note-card clickable" (click)="clicked.emit()" role="button" tabindex="0" (keydown.enter)="clicked.emit()">
+  <div class="note-card-header">
+    <span class="lock-icon">&#128274;</span>
+    <h3>{{ note().title }}</h3>
+  </div>
+  <p class="content-mask">&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;</p>
   <span class="date">{{ formatDate(note().createdAt) }}</span>
 </div>

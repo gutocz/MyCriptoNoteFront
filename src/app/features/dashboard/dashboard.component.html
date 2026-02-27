@@ -1,7 +1,9 @@
 <div class="dashboard">
   <app-dashboard-header />
   <main class="main">
-    <app-search-bar [value]="search()" (valueChange)="onSearch($event)" />
+    <div class="toolbar">
+      <app-search-bar [value]="search()" (valueChange)="onSearch($event)" />
+    </div>
     @if (loading()) {
       <p>{{ 'common.loading' | translate }}</p>
     } @else {
@@ -24,11 +26,46 @@
         } @else {
           <div class="card-grid">
             @for (n of filteredNotes(); track n.id) {
-              <app-note-card [note]="n" (refresh)="onRefresh()" />
+              <app-note-card [note]="n" (clicked)="openNoteModal(n)" />
             }
           </div>
         }
       </section>
     }
   </main>
+
+  <div class="fab-container">
+    @if (fabOpen()) {
+      <div class="fab-menu animate-scale-in">
+        <button type="button" class="fab-menu-item" (click)="openCreateModal('note')">
+          <span class="fab-menu-icon">&#9998;</span>
+          {{ 'dashboard.newNote' | translate }}
+        </button>
+        <button type="button" class="fab-menu-item" (click)="openCreateModal('folder')">
+          <span class="fab-menu-icon">&#128194;</span>
+          {{ 'dashboard.newFolder' | translate }}
+        </button>
+      </div>
+    }
+    <button type="button" class="fab-btn brutal-btn" [class.fab-open]="fabOpen()" (click)="toggleFab($event)" [attr.aria-label]="'dashboard.create' | translate">
+      <span class="fab-icon">+</span>
+    </button>
+  </div>
+
+  <app-create-modal
+    [type]="createModalType()"
+    [isOpen]="createModalOpen()"
+    (closed)="createModalOpen.set(false)"
+    (created)="onRefresh()"
+  />
+
+  @if (selectedNote(); as note) {
+    <app-note-modal
+      [note]="note"
+      [isOpen]="noteModalOpen()"
+      (closed)="closeNoteModal()"
+      (updated)="onRefresh()"
+      (deleted)="onRefresh()"
+    />
+  }
 </div>

@@ -54,9 +54,40 @@
     "search": "Search notes...",
     "folders": "Folders",
     "notes": "Notes",
+    "newFolder": "New folder",
+    "newNote": "New note",
+    "create": "Create",
+    "folderName": "Folder name",
+    "folderPassword": "Folder password",
+    "noteTitle": "Note title",
+    "noteContent": "Content",
+    "notePassword": "Note password",
     "emptyNotes": "No notes yet.",
     "emptyFolders": "No folders yet.",
-    "createFirst": "Create your first note or folder."
+    "createFirst": "Create your first note or folder.",
+    "logout": "Log out"
+  },
+  "notes": {
+    "enterPassword": "Enter the password to unlock this note.",
+    "password": "Password",
+    "unlock": "Unlock",
+    "edit": "Edit",
+    "editNote": "Edit note",
+    "deleteTitle": "Delete note",
+    "deleteMessage": "Are you sure you want to delete this note? This action cannot be undone."
+  },
+  "folders": {
+    "deleteTitle": "Delete folder",
+    "deleteMessage": "Are you sure you want to delete this folder and all its notes?"
+  },
+  "toasts": {
+    "noteCreated": "Note created successfully.",
+    "noteUpdated": "Note updated successfully.",
+    "noteDeleted": "Note deleted successfully.",
+    "folderCreated": "Folder created successfully.",
+    "folderDeleted": "Folder deleted successfully.",
+    "loginSuccess": "Login successful.",
+    "registerSuccess": "Account created successfully."
   },
   "common": {
     "cancel": "Cancel",
@@ -70,6 +101,7 @@
     "invalidCredentials": "Invalid email or password.",
     "emailInUse": "This email is already in use.",
     "wrongPassword": "Incorrect password.",
+    "passwordMismatch": "Passwords do not match.",
     "network": "Connection error. Try again."
   },
   "notFound": {

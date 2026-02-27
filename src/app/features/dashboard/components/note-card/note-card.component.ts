@@ -10,7 +10,7 @@ import { NoteListItem } from '../../../../core/models/note.model';
 })
 export class NoteCardComponent {
   note = input.required<NoteListItem>();
-  refresh = output<void>();
+  clicked = output<void>();
 
   formatDate(iso: string): string {
     return new Date(iso).toLocaleDateString();

@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, OnInit } from '@angular/core';
+import { Component, inject, signal, computed, OnInit, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NotesService } from '../../core/services/notes.service';
@@ -10,6 +10,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { FolderCardComponent } from './components/folder-card/folder-card.component';
 import { NoteCardComponent } from './components/note-card/note-card.component';
 import { EmptyStateComponent } from './components/empty-state/empty-state.component';
+import { CreateModalComponent } from './components/create-modal/create-modal.component';
+import { NoteModalComponent } from './components/note-modal/note-modal.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,7 +23,9 @@ import { EmptyStateComponent } from './components/empty-state/empty-state.compon
     SearchBarComponent,
     FolderCardComponent,
     NoteCardComponent,
-    EmptyStateComponent
+    EmptyStateComponent,
+    CreateModalComponent,
+    NoteModalComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
@@ -34,6 +38,12 @@ export class DashboardComponent implements OnInit {
   folders = signal<FolderListItem[]>([]);
   notes = signal<NoteListItem[]>([]);
   loading = signal(true);
+  createModalOpen = signal(false);
+  createModalType = signal<'folder' | 'note'>('note');
+  fabOpen = signal(false);
+
+  selectedNote = signal<NoteListItem | null>(null);
+  noteModalOpen = signal(false);
 
   filteredNotes = computed(() => {
     const q = this.search().toLowerCase();
@@ -43,6 +53,16 @@ export class DashboardComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  @HostListener('document:click')
+  onDocumentClick(): void {
+    this.fabOpen.set(false);
+  }
+
+  loadData(): void {
+    this.loading.set(true);
     this.foldersService.getAll().subscribe({
       next: (list) => this.folders.set(list),
       error: () => this.loading.set(false)
@@ -59,11 +79,27 @@ export class DashboardComponent implements OnInit {
   }
 
   onRefresh(): void {
-    this.loading.set(true);
-    this.foldersService.getAll().subscribe((list) => this.folders.set(list));
-    this.notesService.getAll().subscribe({
-      next: (list) => this.notes.set(list),
-      complete: () => this.loading.set(false)
-    });
+    this.loadData();
+  }
+
+  toggleFab(event: Event): void {
+    event.stopPropagation();
+    this.fabOpen.update((v) => !v);
+  }
+
+  openCreateModal(type: 'folder' | 'note'): void {
+    this.fabOpen.set(false);
+    this.createModalType.set(type);
+    this.createModalOpen.set(true);
+  }
+
+  openNoteModal(note: NoteListItem): void {
+    this.selectedNote.set(note);
+    this.noteModalOpen.set(true);
+  }
+
+  closeNoteModal(): void {
+    this.noteModalOpen.set(false);
+    this.selectedNote.set(null);
   }
 }

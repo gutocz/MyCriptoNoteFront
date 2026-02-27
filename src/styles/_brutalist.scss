@@ -73,6 +73,17 @@
   }
 }
 
+.brutal-btn-danger {
+  background: #e53e3e;
+  color: $color-white;
+  &:hover {
+    background: #c53030;
+    color: $color-white;
+    box-shadow: 6px 6px 0px $color-black;
+    transform: translate(-1px, -1px);
+  }
+}
+
 .brutal-modal {
   @include brutal-border;
   @include brutal-shadow-lg;
@@ -80,4 +91,8 @@
   padding: 1.5rem;
   max-width: 90vw;
   animation: scale-in 0.25s ease-out;
+}
+
+.clickable {
+  cursor: pointer;
 }

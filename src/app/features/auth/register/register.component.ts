@@ -28,17 +28,12 @@ export class RegisterComponent {
 
   submit(): void {
     this.error = '';
-    if (this.form.invalid) {
-      if (this.form.get('password')?.value !== this.form.get('confirmPassword')?.value) {
-        this.error = 'Senhas não conferem';
-      }
-      return;
-    }
     const { confirmPassword, ...payload } = this.form.getRawValue();
     if (payload.password !== confirmPassword) {
-      this.error = 'Senhas não conferem';
+      this.error = 'errors.passwordMismatch';
       return;
     }
+    if (this.form.invalid) return;
     this.loading = true;
     this.auth.register(payload).subscribe({
       next: () => this.router.navigate(['/notes']),

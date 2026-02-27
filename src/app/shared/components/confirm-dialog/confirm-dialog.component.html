@@ -1,0 +1,14 @@
+@if (isOpen()) {
+  <div class="overlay" (click)="cancelled.emit()" (keydown.escape)="cancelled.emit()" tabindex="-1">
+    <div class="brutal-modal modal" (click)="$event.stopPropagation()" role="dialog">
+      <h2>{{ title() }}</h2>
+      <p class="message">{{ message() }}</p>
+      <div class="actions">
+        <button type="button" class="brutal-btn brutal-btn-secondary" (click)="cancelled.emit()">{{ 'common.cancel' | translate }}</button>
+        <button type="button" class="brutal-btn brutal-btn-danger" [disabled]="loading()" (click)="confirmed.emit()">
+          {{ loading() ? ('common.loading' | translate) : (confirmLabel() || ('common.confirm' | translate)) }}
+        </button>
+      </div>
+    </div>
+  </div>
+}

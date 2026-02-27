@@ -1,0 +1,85 @@
+@if (isOpen()) {
+  <div class="overlay" (click)="hide()" (keydown.escape)="hide()" tabindex="-1">
+    <div class="brutal-modal modal" (click)="$event.stopPropagation()" role="dialog">
+
+      @switch (state()) {
+        @case ('locked') {
+          <div class="modal-header">
+            <h2>{{ note().title }}</h2>
+            <button type="button" class="close-btn" (click)="hide()">&times;</button>
+          </div>
+          <p class="lock-hint">{{ 'notes.enterPassword' | translate }}</p>
+          <form [formGroup]="passwordForm" (ngSubmit)="submitPassword()">
+            <div class="field">
+              <label for="unlock-password">{{ 'notes.password' | translate }}</label>
+              <input
+                id="unlock-password"
+                type="password"
+                class="brutal-input"
+                formControlName="password"
+                [class.input-error]="error()"
+                autocomplete="off"
+              />
+              @if (error()) {
+                <span class="error-text">{{ error() }}</span>
+              }
+            </div>
+            <div class="actions">
+              <button type="button" class="brutal-btn brutal-btn-secondary" (click)="hide()">{{ 'common.cancel' | translate }}</button>
+              <button type="submit" class="brutal-btn" [disabled]="loading()">
+                {{ loading() ? ('common.loading' | translate) : ('notes.unlock' | translate) }}
+              </button>
+            </div>
+          </form>
+        }
+
+        @case ('unlocked') {
+          <div class="modal-header">
+            <h2>{{ unlocked()?.title }}</h2>
+            <button type="button" class="close-btn" (click)="hide()">&times;</button>
+          </div>
+          <div class="note-content">
+            <p>{{ unlocked()?.content }}</p>
+          </div>
+          <div class="actions">
+            <button type="button" class="brutal-btn brutal-btn-danger" (click)="askDelete()">{{ 'common.delete' | translate }}</button>
+            <button type="button" class="brutal-btn" (click)="startEditing()">{{ 'notes.edit' | translate }}</button>
+          </div>
+        }
+
+        @case ('editing') {
+          <div class="modal-header">
+            <h2>{{ 'notes.editNote' | translate }}</h2>
+            <button type="button" class="close-btn" (click)="cancelEditing()">&times;</button>
+          </div>
+          <form [formGroup]="editForm" (ngSubmit)="submitEdit()">
+            <div class="field">
+              <label for="edit-title">{{ 'dashboard.noteTitle' | translate }}</label>
+              <input id="edit-title" type="text" class="brutal-input" formControlName="title" />
+            </div>
+            <div class="field">
+              <label for="edit-content">{{ 'dashboard.noteContent' | translate }}</label>
+              <textarea id="edit-content" class="brutal-input" formControlName="content" rows="6"></textarea>
+            </div>
+            <div class="actions">
+              <button type="button" class="brutal-btn brutal-btn-secondary" (click)="cancelEditing()">{{ 'common.cancel' | translate }}</button>
+              <button type="submit" class="brutal-btn" [disabled]="loading()">
+                {{ loading() ? ('common.loading' | translate) : ('common.save' | translate) }}
+              </button>
+            </div>
+          </form>
+        }
+      }
+    </div>
+  </div>
+
+  <app-confirm-dialog
+    [isOpen]="confirmDeleteOpen()"
+    [title]="'notes.deleteTitle' | translate"
+    [message]="'notes.deleteMessage' | translate"
+    [confirmLabel]="'common.delete' | translate"
+    [loading]="deleteLoading()"
+    (confirmed)="confirmDelete()"
+    (cancelled)="cancelDelete()"
+  />
+}

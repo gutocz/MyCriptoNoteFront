@@ -5,10 +5,20 @@
       <div class="field">
         <label for="email">{{ 'auth.register.email' | translate }}</label>
         <input id="email" type="email" class="brutal-input" formControlName="email" />
+        @if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+          <span class="field-error">{{ 'auth.register.invalidEmail' | translate }}</span>
+        }
       </div>
       <div class="field">
         <label for="password">{{ 'auth.register.password' | translate }}</label>
         <input id="password" type="password" class="brutal-input" formControlName="password" />
+        <ul class="password-rules" [class.touched]="form.get('password')?.touched">
+          <li [class.valid]="hasMinLength">{{ 'auth.register.passwordMinLength' | translate }}</li>
+          <li [class.valid]="hasUppercase">{{ 'auth.register.passwordUppercase' | translate }}</li>
+          <li [class.valid]="hasLowercase">{{ 'auth.register.passwordLowercase' | translate }}</li>
+          <li [class.valid]="hasNumber">{{ 'auth.register.passwordNumber' | translate }}</li>
+          <li [class.valid]="hasSpecial">{{ 'auth.register.passwordSpecial' | translate }}</li>
+        </ul>
       </div>
       <div class="field">
         <label for="confirmPassword">{{ 'auth.register.confirmPassword' | translate }}</label>

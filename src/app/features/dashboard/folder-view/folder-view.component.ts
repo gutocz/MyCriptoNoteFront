@@ -1,4 +1,4 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, signal, computed, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NotesService } from '../../../core/services/notes.service';
@@ -6,6 +6,7 @@ import { FoldersService } from '../../../core/services/folders.service';
 import { NoteListItem } from '../../../core/models/note.model';
 import { FolderListItem } from '../../../core/models/folder.model';
 import { DashboardHeaderComponent } from '../components/dashboard-header/dashboard-header.component';
+import { SearchBarComponent } from '../components/search-bar/search-bar.component';
 import { NoteCardComponent } from '../components/note-card/note-card.component';
 import { NoteModalComponent } from '../components/note-modal/note-modal.component';
 import { CreateModalComponent } from '../components/create-modal/create-modal.component';
@@ -17,6 +18,7 @@ import { CreateModalComponent } from '../components/create-modal/create-modal.co
     RouterLink,
     TranslateModule,
     DashboardHeaderComponent,
+    SearchBarComponent,
     NoteCardComponent,
     NoteModalComponent,
     CreateModalComponent
@@ -33,7 +35,15 @@ export class FolderViewComponent implements OnInit {
   folder = signal<FolderListItem | null>(null);
   folders = signal<FolderListItem[]>([]);
   notes = signal<NoteListItem[]>([]);
+  search = signal('');
   folderId = '';
+
+  filteredNotes = computed(() => {
+    const q = this.search().toLowerCase();
+    const list = this.notes();
+    if (!q) return list;
+    return list.filter((n) => n.title.toLowerCase().includes(q));
+  });
 
   selectedNote = signal<NoteListItem | null>(null);
   noteModalOpen = signal(false);
@@ -73,6 +83,10 @@ export class FolderViewComponent implements OnInit {
 
   onRefresh(): void {
     this.loadData();
+  }
+
+  onSearch(value: string): void {
+    this.search.set(value);
   }
 
   openCreateNote(): void {

@@ -17,8 +17,12 @@
       </button>
     </div>
 
+    <div class="folder-search">
+      <app-search-bar [value]="search()" (valueChange)="onSearch($event)" />
+    </div>
+
     <div class="notes-grid">
-      @for (n of notes(); track n.id) {
+      @for (n of filteredNotes(); track n.id) {
         <app-note-card [note]="n" (clicked)="openNote(n)" />
       } @empty {
         <p class="empty-text">{{ 'dashboard.emptyNotes' | translate }}</p>

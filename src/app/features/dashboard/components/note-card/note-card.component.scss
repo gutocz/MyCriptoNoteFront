@@ -1,5 +1,7 @@
+@use 'styles/variables' as *;
+
 .note-card {
-  cursor: pointer;
+  @include cursor-pointer;
   user-select: none;
 }
 

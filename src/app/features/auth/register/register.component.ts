@@ -19,12 +19,26 @@ export class RegisterComponent {
 
   form = this.fb.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(4)]],
+    password: ['', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).+$/)
+    ]],
     confirmPassword: ['', Validators.required]
   });
 
   loading = false;
   error = '';
+
+  get pw(): string {
+    return this.form.get('password')?.value ?? '';
+  }
+
+  get hasMinLength(): boolean { return this.pw.length >= 8; }
+  get hasUppercase(): boolean { return /[A-Z]/.test(this.pw); }
+  get hasLowercase(): boolean { return /[a-z]/.test(this.pw); }
+  get hasNumber(): boolean { return /\d/.test(this.pw); }
+  get hasSpecial(): boolean { return /[^a-zA-Z0-9]/.test(this.pw); }
 
   submit(): void {
     this.error = '';

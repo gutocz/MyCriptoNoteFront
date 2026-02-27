@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
 
   filteredNotes = computed(() => {
     const q = this.search().toLowerCase();
-    const list = this.notes();
+    const list = this.notes().filter((n) => !n.folderId);
     if (!q) return list;
     return list.filter((n) => n.title.toLowerCase().includes(q));
   });

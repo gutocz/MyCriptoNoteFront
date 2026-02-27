@@ -13,7 +13,7 @@
   "features": {
     "title": "Recursos",
     "encryption": { "title": "Criptografia", "desc": "Cada nota com sua própria senha." },
-    "folders": { "title": "Pastas", "desc": "Agrupe notas com senha compartilhada." },
+    "folders": { "title": "Pastas", "desc": "Agrupe notas com uma camada extra de segurança." },
     "zeroKnowledge": { "title": "Zero-Knowledge", "desc": "O servidor nunca vê o conteúdo." }
   },
   "howItWorks": {
@@ -28,7 +28,9 @@
   },
   "footer": {
     "links": "Links",
-    "copyright": "MyCriptoNote. Todos os direitos reservados."
+    "copyright": "MyCriptoNote. Todos os direitos reservados.",
+    "createdBy": "Criado por ",
+    "creatorName": "Gustavo Soares"
   },
   "auth": {
     "login": {
@@ -46,7 +48,13 @@
       "confirmPassword": "Confirmar senha",
       "submit": "Cadastrar",
       "hasAccount": "Já tem conta?",
-      "login": "Entrar"
+      "login": "Entrar",
+      "invalidEmail": "Digite um e-mail válido.",
+      "passwordMinLength": "Mínimo de 8 caracteres",
+      "passwordUppercase": "Pelo menos uma letra maiúscula",
+      "passwordLowercase": "Pelo menos uma letra minúscula",
+      "passwordNumber": "Pelo menos um número",
+      "passwordSpecial": "Pelo menos um caractere especial (!@#$...)"
     }
   },
   "dashboard": {
@@ -81,6 +89,7 @@
     "deleteMessage": "Tem certeza que deseja excluir esta nota? Essa ação não pode ser desfeita.",
     "copy": "Copiar",
     "moveToFolder": "Mover para pasta",
+    "removeFromFolder": "Tirar da pasta",
     "moveWarning": "A nota será movida para a pasta selecionada. A senha da nota não será alterada.",
     "selectTarget": "Selecione uma pasta...",
     "move": "Mover"
@@ -100,6 +109,7 @@
     "folderDeleted": "Pasta excluída com sucesso.",
     "copiedToClipboard": "Conteúdo copiado!",
     "noteMoved": "Nota movida com sucesso.",
+    "noteRemovedFromFolder": "Nota removida da pasta.",
     "loginSuccess": "Login realizado com sucesso.",
     "registerSuccess": "Conta criada com sucesso."
   },

@@ -21,3 +21,11 @@ $font-mono: 'Space Mono', monospace;
 
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
+
+@mixin cursor-pointer {
+  cursor: url('/assets/cursors/pointer.svg'), pointer;
+
+  &:active {
+    cursor: url('/assets/cursors/pointer_click.svg'), pointer;
+  }
+}

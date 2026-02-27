@@ -5,9 +5,6 @@
       <div class="field">
         <label for="email">{{ 'auth.login.email' | translate }}</label>
         <input id="email" type="email" class="brutal-input" formControlName="email" />
-        @if (form.get('email')?.invalid && form.get('email')?.touched) {
-          <span class="error">{{ 'errors.invalidCredentials' | translate }}</span>
-        }
       </div>
       <div class="field">
         <label for="password">{{ 'auth.login.password' | translate }}</label>

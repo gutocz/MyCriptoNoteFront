@@ -154,6 +154,22 @@ export class NoteModalComponent {
     return this.folders().filter((f) => f.id !== currentFolderId);
   }
 
+  removeFromFolder(): void {
+    this.moveLoading.set(true);
+    this.notesService.removeFromFolder(this.note().id).subscribe({
+      next: () => {
+        this.toast.success(this.translate.instant('toasts.noteRemovedFromFolder'));
+        this.moveLoading.set(false);
+        this.hide();
+        this.updated.emit();
+      },
+      error: () => {
+        this.moveLoading.set(false);
+        this.toast.error(this.translate.instant('errors.network'));
+      }
+    });
+  }
+
   submitMove(): void {
     if (this.moveForm.invalid) return;
     this.moveLoading.set(true);

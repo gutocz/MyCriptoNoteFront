@@ -31,9 +31,9 @@ export class LoginComponent {
     this.loading = true;
     this.auth.login(this.form.getRawValue()).subscribe({
       next: () => this.router.navigate(['/notes']),
-      error: (err) => {
+      error: () => {
         this.loading = false;
-        this.error = err.error?.error || 'errors.invalidCredentials';
+        this.error = 'errors.invalidCredentials';
       },
       complete: () => { this.loading = false; }
     });

@@ -51,7 +51,7 @@
   },
   "dashboard": {
     "title": "Minhas notas",
-    "search": "Buscar notas...",
+    "search": "Buscar notas e pastas...",
     "folders": "Pastas",
     "notes": "Notas",
     "newFolder": "Nova pasta",
@@ -62,6 +62,10 @@
     "noteTitle": "Título da nota",
     "noteContent": "Conteúdo",
     "notePassword": "Senha da nota",
+    "selectFolder": "Pasta (opcional)",
+    "noFolder": "Nenhuma — nota avulsa",
+    "backToNotes": "Voltar",
+    "createNoteInFolder": "Nova nota",
     "emptyNotes": "Nenhuma nota ainda.",
     "emptyFolders": "Nenhuma pasta ainda.",
     "createFirst": "Crie sua primeira nota ou pasta.",
@@ -74,11 +78,19 @@
     "edit": "Editar",
     "editNote": "Editar nota",
     "deleteTitle": "Excluir nota",
-    "deleteMessage": "Tem certeza que deseja excluir esta nota? Essa ação não pode ser desfeita."
+    "deleteMessage": "Tem certeza que deseja excluir esta nota? Essa ação não pode ser desfeita.",
+    "copy": "Copiar",
+    "moveToFolder": "Mover para pasta",
+    "moveWarning": "A nota será movida para a pasta selecionada. A senha da nota não será alterada.",
+    "selectTarget": "Selecione uma pasta...",
+    "move": "Mover"
   },
   "folders": {
     "deleteTitle": "Excluir pasta",
-    "deleteMessage": "Tem certeza que deseja excluir esta pasta e todas as suas notas?"
+    "deleteMessage": "Tem certeza que deseja excluir esta pasta e todas as suas notas?",
+    "enterPassword": "Digite a senha para acessar esta pasta.",
+    "password": "Senha da pasta",
+    "open": "Abrir pasta"
   },
   "toasts": {
     "noteCreated": "Nota criada com sucesso.",
@@ -86,6 +98,8 @@
     "noteDeleted": "Nota excluída com sucesso.",
     "folderCreated": "Pasta criada com sucesso.",
     "folderDeleted": "Pasta excluída com sucesso.",
+    "copiedToClipboard": "Conteúdo copiado!",
+    "noteMoved": "Nota movida com sucesso.",
     "loginSuccess": "Login realizado com sucesso.",
     "registerSuccess": "Conta criada com sucesso."
   },

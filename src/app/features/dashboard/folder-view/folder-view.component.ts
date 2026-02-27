@@ -1,40 +1,90 @@
 import { Component, inject, signal, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NotesService } from '../../../core/services/notes.service';
 import { FoldersService } from '../../../core/services/folders.service';
-import { FolderPasswordService } from '../../../core/services/folder-password.service';
 import { NoteListItem } from '../../../core/models/note.model';
 import { FolderListItem } from '../../../core/models/folder.model';
 import { DashboardHeaderComponent } from '../components/dashboard-header/dashboard-header.component';
+import { NoteCardComponent } from '../components/note-card/note-card.component';
+import { NoteModalComponent } from '../components/note-modal/note-modal.component';
+import { CreateModalComponent } from '../components/create-modal/create-modal.component';
 
 @Component({
   selector: 'app-folder-view',
   standalone: true,
-  imports: [RouterLink, TranslateModule, DashboardHeaderComponent],
+  imports: [
+    RouterLink,
+    TranslateModule,
+    DashboardHeaderComponent,
+    NoteCardComponent,
+    NoteModalComponent,
+    CreateModalComponent
+  ],
   templateUrl: './folder-view.component.html',
   styleUrl: './folder-view.component.scss'
 })
 export class FolderViewComponent implements OnInit {
   private route = inject(ActivatedRoute);
+  private router = inject(Router);
   private notesService = inject(NotesService);
   private foldersService = inject(FoldersService);
-  private folderPassword = inject(FolderPasswordService);
 
   folder = signal<FolderListItem | null>(null);
+  folders = signal<FolderListItem[]>([]);
   notes = signal<NoteListItem[]>([]);
   folderId = '';
 
+  selectedNote = signal<NoteListItem | null>(null);
+  noteModalOpen = signal(false);
+
+  createOpen = signal(false);
+
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (!id) return;
+    if (!id) {
+      this.router.navigate(['/notes']);
+      return;
+    }
     this.folderId = id;
+    this.loadData();
+  }
+
+  private loadData(): void {
     this.foldersService.getAll().subscribe((list) => {
-      const f = list.find((x) => x.id === id);
+      this.folders.set(list);
+      const f = list.find((x) => x.id === this.folderId);
       this.folder.set(f ?? null);
     });
     this.notesService.getAll().subscribe((list) => {
-      this.notes.set(list.filter((n) => n.folderId === id));
+      this.notes.set(list.filter((n) => n.folderId === this.folderId));
     });
+  }
+
+  openNote(note: NoteListItem): void {
+    this.selectedNote.set(note);
+    this.noteModalOpen.set(true);
+  }
+
+  closeNoteModal(): void {
+    this.noteModalOpen.set(false);
+    this.selectedNote.set(null);
+  }
+
+  onRefresh(): void {
+    this.loadData();
+  }
+
+  openCreateNote(): void {
+    this.createOpen.set(true);
+  }
+
+  closeCreateNote(): void {
+    this.createOpen.set(false);
+  }
+
+  onNoteCreated(): void {
+    this.createOpen.set(false);
+    this.loadData();
   }
 }

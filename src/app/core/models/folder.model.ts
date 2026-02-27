@@ -8,3 +8,7 @@ export interface CreateFolderRequest {
   name: string;
   password: string;
 }
+
+export interface UnlockFolderRequest {
+  password: string;
+}

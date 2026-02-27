@@ -8,8 +8,7 @@ import {
   CreateNoteRequest,
   UpdateNoteRequest,
   UnlockNoteRequest,
-  MoveToFolderRequest,
-  RemoveFromFolderRequest
+  MoveToFolderRequest
 } from '../models/note.model';
 
 @Injectable({ providedIn: 'root' })
@@ -42,7 +41,7 @@ export class NotesService {
     return this.http.post<void>(`${this.base}/${id}/move-to-folder`, req);
   }
 
-  removeFromFolder(id: string, req: RemoveFromFolderRequest): Observable<void> {
-    return this.http.post<void>(`${this.base}/${id}/remove-from-folder`, req);
+  removeFromFolder(id: string): Observable<void> {
+    return this.http.post<void>(`${this.base}/${id}/remove-from-folder`, {});
   }
 }

@@ -30,6 +30,17 @@
             <label for="note-content">{{ 'dashboard.noteContent' | translate }}</label>
             <textarea id="note-content" class="brutal-input" formControlName="content" rows="4"></textarea>
           </div>
+          @if (folders().length > 0 && !preselectedFolderId()) {
+            <div class="field">
+              <label for="note-folder">{{ 'dashboard.selectFolder' | translate }}</label>
+              <select id="note-folder" class="brutal-input" formControlName="folderId">
+                <option value="">{{ 'dashboard.noFolder' | translate }}</option>
+                @for (f of folders(); track f.id) {
+                  <option [value]="f.id">{{ f.name }}</option>
+                }
+              </select>
+            </div>
+          }
           <div class="field">
             <label for="note-password">{{ 'dashboard.notePassword' | translate }}</label>
             <input id="note-password" type="password" class="brutal-input" formControlName="password" />

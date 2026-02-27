@@ -29,12 +29,5 @@ export interface UnlockNoteRequest {
 }
 
 export interface MoveToFolderRequest {
-  notePassword: string;
   folderId: string;
-  folderPassword: string;
-}
-
-export interface RemoveFromFolderRequest {
-  folderPassword: string;
-  newNotePassword: string;
 }

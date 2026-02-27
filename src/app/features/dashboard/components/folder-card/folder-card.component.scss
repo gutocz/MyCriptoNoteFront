@@ -1,11 +1,18 @@
 .folder-card {
   display: block;
-  text-decoration: none;
   color: inherit;
+  user-select: none;
 }
 
-.folder-card h3 {
-  margin: 0 0 0.5rem 0;
+.folder-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.folder-card-header h3 {
+  margin: 0;
 }
 
 .date {

@@ -1,0 +1,12 @@
+<div class="selector">
+  <button type="button" class="trigger" (click)="toggle()" [attr.aria-expanded]="open">
+    <span aria-hidden="true">🌐</span>
+    <span>{{ currentLang === 'pt-BR' ? 'PT' : 'EN' }}</span>
+  </button>
+  @if (open) {
+    <div class="dropdown">
+      <button type="button" (click)="setLang('pt-BR')" [class.active]="currentLang === 'pt-BR'">pt-BR</button>
+      <button type="button" (click)="setLang('en-US')" [class.active]="currentLang === 'en-US'">en-US</button>
+    </div>
+  }
+</div>

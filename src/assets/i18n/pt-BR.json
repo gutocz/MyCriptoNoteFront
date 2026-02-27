@@ -1,0 +1,136 @@
+{
+  "navbar": {
+    "features": "Recursos",
+    "howItWorks": "Como funciona",
+    "security": "Segurança",
+    "signIn": "Entrar"
+  },
+  "hero": {
+    "headline": "Suas notas, só suas.",
+    "subtitle": "Criptografia Zero-Knowledge. Crie notas e pastas protegidas por senha. Nem nós conseguimos ler.",
+    "cta": "Criar conta grátis"
+  },
+  "features": {
+    "title": "Recursos",
+    "encryption": { "title": "Criptografia", "desc": "Cada nota com sua própria senha." },
+    "folders": { "title": "Pastas", "desc": "Agrupe notas com uma camada extra de segurança." },
+    "zeroKnowledge": { "title": "Zero-Knowledge", "desc": "O servidor nunca vê o conteúdo." }
+  },
+  "howItWorks": {
+    "title": "Como funciona",
+    "step1": { "title": "Crie sua conta", "desc": "E-mail e senha. Simples." },
+    "step2": { "title": "Crie notas", "desc": "Título, conteúdo e uma senha por nota." },
+    "step3": { "title": "Desbloqueie quando precisar", "desc": "Digite a senha e leia ou edite." }
+  },
+  "security": {
+    "title": "Segurança",
+    "text": "Zero-Knowledge com AES. Suas senhas nunca saem do seu dispositivo para descriptografar. O backend só armazena dados criptografados."
+  },
+  "footer": {
+    "links": "Links",
+    "copyright": "MyCriptoNote. Todos os direitos reservados.",
+    "createdBy": "Criado por ",
+    "creatorName": "Gustavo Soares"
+  },
+  "auth": {
+    "login": {
+      "title": "Entrar",
+      "email": "E-mail",
+      "password": "Senha",
+      "submit": "Entrar",
+      "noAccount": "Não tem conta?",
+      "register": "Cadastre-se"
+    },
+    "register": {
+      "title": "Criar conta",
+      "email": "E-mail",
+      "password": "Senha",
+      "confirmPassword": "Confirmar senha",
+      "submit": "Cadastrar",
+      "hasAccount": "Já tem conta?",
+      "login": "Entrar",
+      "invalidEmail": "Digite um e-mail válido.",
+      "passwordMinLength": "Mínimo de 8 caracteres",
+      "passwordUppercase": "Pelo menos uma letra maiúscula",
+      "passwordLowercase": "Pelo menos uma letra minúscula",
+      "passwordNumber": "Pelo menos um número",
+      "passwordSpecial": "Pelo menos um caractere especial (!@#$...)"
+    }
+  },
+  "dashboard": {
+    "title": "Minhas notas",
+    "search": "Buscar notas e pastas...",
+    "folders": "Pastas",
+    "notes": "Notas",
+    "newFolder": "Nova pasta",
+    "newNote": "Nova nota",
+    "create": "Criar",
+    "folderName": "Nome da pasta",
+    "folderPassword": "Senha da pasta",
+    "noteTitle": "Título da nota",
+    "noteContent": "Conteúdo",
+    "notePassword": "Senha da nota",
+    "selectFolder": "Pasta (opcional)",
+    "noFolder": "Nenhuma — nota avulsa",
+    "backToNotes": "Voltar",
+    "createNoteInFolder": "Nova nota",
+    "emptyNotes": "Nenhuma nota ainda.",
+    "emptyFolders": "Nenhuma pasta ainda.",
+    "createFirst": "Crie sua primeira nota ou pasta.",
+    "logout": "Sair"
+  },
+  "notes": {
+    "enterPassword": "Digite a senha para desbloquear esta nota.",
+    "password": "Senha",
+    "unlock": "Desbloquear",
+    "edit": "Editar",
+    "editNote": "Editar nota",
+    "deleteTitle": "Excluir nota",
+    "deleteMessage": "Tem certeza que deseja excluir esta nota? Essa ação não pode ser desfeita.",
+    "copy": "Copiar",
+    "moveToFolder": "Mover para pasta",
+    "removeFromFolder": "Tirar da pasta",
+    "moveWarning": "A nota será movida para a pasta selecionada. A senha da nota não será alterada.",
+    "selectTarget": "Selecione uma pasta...",
+    "move": "Mover"
+  },
+  "folders": {
+    "deleteTitle": "Excluir pasta",
+    "deleteMessage": "Tem certeza que deseja excluir esta pasta e todas as suas notas?",
+    "enterPassword": "Digite a senha para acessar esta pasta.",
+    "password": "Senha da pasta",
+    "open": "Abrir pasta"
+  },
+  "toasts": {
+    "noteCreated": "Nota criada com sucesso.",
+    "noteUpdated": "Nota atualizada com sucesso.",
+    "noteDeleted": "Nota excluída com sucesso.",
+    "folderCreated": "Pasta criada com sucesso.",
+    "folderDeleted": "Pasta excluída com sucesso.",
+    "copiedToClipboard": "Conteúdo copiado!",
+    "noteMoved": "Nota movida com sucesso.",
+    "noteRemovedFromFolder": "Nota removida da pasta.",
+    "loginSuccess": "Login realizado com sucesso.",
+    "registerSuccess": "Conta criada com sucesso."
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "close": "Fechar",
+    "loading": "Carregando...",
+    "save": "Salvar",
+    "delete": "Excluir"
+  },
+  "errors": {
+    "invalidCredentials": "E-mail ou senha inválidos.",
+    "emailInUse": "Este e-mail já está em uso.",
+    "wrongPassword": "Senha incorreta.",
+    "passwordMismatch": "As senhas não conferem.",
+    "network": "Erro de conexão. Tente novamente."
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "message": "A página que você procura não existe.",
+    "back": "Voltar ao início"
+  }
+}

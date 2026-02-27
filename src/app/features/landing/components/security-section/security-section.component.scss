@@ -1,0 +1,17 @@
+@use 'styles/variables' as *;
+
+.security {
+  padding: 4rem 1.5rem;
+  background: $color-bg-dark;
+  color: $color-text-inverse;
+}
+
+.security h2 {
+  margin-bottom: 1rem;
+  color: $color-white;
+}
+
+.security p {
+  max-width: 640px;
+  margin: 0 auto;
+}

@@ -1,0 +1,126 @@
+@if (isOpen()) {
+  <div class="overlay" (click)="hide()" (keydown.escape)="hide()" tabindex="-1">
+    <div class="brutal-modal modal" (click)="$event.stopPropagation()" role="dialog">
+
+      @switch (state()) {
+        @case ('locked') {
+          <div class="modal-header">
+            <h2>{{ note().title }}</h2>
+            <button type="button" class="close-btn" (click)="hide()">&times;</button>
+          </div>
+          <p class="lock-hint">{{ 'notes.enterPassword' | translate }}</p>
+          <form [formGroup]="passwordForm" (ngSubmit)="submitPassword()">
+            <div class="field">
+              <label for="unlock-password">{{ 'notes.password' | translate }}</label>
+              <input
+                id="unlock-password"
+                type="password"
+                class="brutal-input"
+                formControlName="password"
+                [class.input-error]="error()"
+                autocomplete="off"
+              />
+              @if (error()) {
+                <span class="error-text">{{ error() }}</span>
+              }
+            </div>
+            <div class="actions">
+              <button type="button" class="brutal-btn brutal-btn-secondary" (click)="hide()">{{ 'common.cancel' | translate }}</button>
+              <button type="submit" class="brutal-btn" [disabled]="loading()">
+                {{ loading() ? ('common.loading' | translate) : ('notes.unlock' | translate) }}
+              </button>
+            </div>
+          </form>
+        }
+
+        @case ('unlocked') {
+          <div class="modal-header">
+            <h2>{{ unlocked()?.title }}</h2>
+            <button type="button" class="close-btn" (click)="hide()">&times;</button>
+          </div>
+          <div class="note-content">
+            <p>{{ unlocked()?.content }}</p>
+          </div>
+          <div class="actions-bar">
+            <div class="actions-left">
+              <button type="button" class="brutal-btn brutal-btn-danger" (click)="askDelete()">{{ 'common.delete' | translate }}</button>
+            </div>
+            <div class="actions-right">
+              <button type="button" class="brutal-btn brutal-btn-secondary icon-btn" (click)="copyContent()" [attr.title]="'notes.copy' | translate">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+              @if (note().folderId) {
+                <button type="button" class="brutal-btn brutal-btn-secondary icon-btn" (click)="removeFromFolder()" [attr.title]="'notes.removeFromFolder' | translate" [disabled]="moveLoading()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+                </button>
+              }
+              @if (availableFolders.length > 0) {
+                <button type="button" class="brutal-btn brutal-btn-secondary icon-btn" (click)="startMoving()" [attr.title]="'notes.moveToFolder' | translate">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="11" x2="12" y2="17"/><polyline points="9 14 12 11 15 14"/></svg>
+                </button>
+              }
+              <button type="button" class="brutal-btn" (click)="startEditing()">{{ 'notes.edit' | translate }}</button>
+            </div>
+          </div>
+        }
+
+        @case ('editing') {
+          <div class="modal-header">
+            <h2>{{ 'notes.editNote' | translate }}</h2>
+            <button type="button" class="close-btn" (click)="cancelEditing()">&times;</button>
+          </div>
+          <form [formGroup]="editForm" (ngSubmit)="submitEdit()">
+            <div class="field">
+              <label for="edit-title">{{ 'dashboard.noteTitle' | translate }}</label>
+              <input id="edit-title" type="text" class="brutal-input" formControlName="title" />
+            </div>
+            <div class="field">
+              <label for="edit-content">{{ 'dashboard.noteContent' | translate }}</label>
+              <textarea id="edit-content" class="brutal-input" formControlName="content" rows="6"></textarea>
+            </div>
+            <div class="actions">
+              <button type="button" class="brutal-btn brutal-btn-secondary" (click)="cancelEditing()">{{ 'common.cancel' | translate }}</button>
+              <button type="submit" class="brutal-btn" [disabled]="loading()">
+                {{ loading() ? ('common.loading' | translate) : ('common.save' | translate) }}
+              </button>
+            </div>
+          </form>
+        }
+
+        @case ('moving') {
+          <div class="modal-header">
+            <h2>{{ 'notes.moveToFolder' | translate }}</h2>
+            <button type="button" class="close-btn" (click)="cancelMoving()">&times;</button>
+          </div>
+          <form [formGroup]="moveForm" (ngSubmit)="submitMove()">
+            <div class="field">
+              <label for="move-folder">{{ 'dashboard.selectFolder' | translate }}</label>
+              <select id="move-folder" class="brutal-input" formControlName="folderId">
+                <option value="" disabled>{{ 'notes.selectTarget' | translate }}</option>
+                @for (f of availableFolders; track f.id) {
+                  <option [value]="f.id">{{ f.name }}</option>
+                }
+              </select>
+            </div>
+            <div class="actions">
+              <button type="button" class="brutal-btn brutal-btn-secondary" (click)="cancelMoving()">{{ 'common.cancel' | translate }}</button>
+              <button type="submit" class="brutal-btn" [disabled]="moveLoading()">
+                {{ moveLoading() ? ('common.loading' | translate) : ('notes.move' | translate) }}
+              </button>
+            </div>
+          </form>
+        }
+      }
+    </div>
+  </div>
+
+  <app-confirm-dialog
+    [isOpen]="confirmDeleteOpen()"
+    [title]="'notes.deleteTitle' | translate"
+    [message]="'notes.deleteMessage' | translate"
+    [confirmLabel]="'common.delete' | translate"
+    [loading]="deleteLoading()"
+    (confirmed)="confirmDelete()"
+    (cancelled)="cancelDelete()"
+  />
+}

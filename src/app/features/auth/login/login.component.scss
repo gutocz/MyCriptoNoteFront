@@ -1,0 +1,52 @@
+@use 'styles/variables' as *;
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.card h1 {
+  margin-bottom: 1.5rem;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.error, .error-msg {
+  color: #c00;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.error-msg { margin-bottom: 1rem; }
+
+.card button[type="submit"] {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.footer-msg {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.footer-msg a {
+  font-weight: 600;
+  color: $color-accent-purple;
+}

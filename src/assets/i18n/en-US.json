@@ -1,0 +1,136 @@
+{
+  "navbar": {
+    "features": "Features",
+    "howItWorks": "How it works",
+    "security": "Security",
+    "signIn": "Sign In"
+  },
+  "hero": {
+    "headline": "Your notes, only yours.",
+    "subtitle": "Zero-Knowledge encryption. Create notes and folders protected by password. Not even we can read them.",
+    "cta": "Create free account"
+  },
+  "features": {
+    "title": "Features",
+    "encryption": { "title": "Encryption", "desc": "Each note with its own password." },
+    "folders": { "title": "Folders", "desc": "Group notes with an extra layer of security." },
+    "zeroKnowledge": { "title": "Zero-Knowledge", "desc": "The server never sees the content." }
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "step1": { "title": "Create your account", "desc": "Email and password. Simple." },
+    "step2": { "title": "Create notes", "desc": "Title, content and a password per note." },
+    "step3": { "title": "Unlock when you need", "desc": "Enter the password and read or edit." }
+  },
+  "security": {
+    "title": "Security",
+    "text": "Zero-Knowledge with AES. Your passwords never leave your device to decrypt. The backend only stores encrypted data."
+  },
+  "footer": {
+    "links": "Links",
+    "copyright": "MyCriptoNote. All rights reserved.",
+    "createdBy": "Created by ",
+    "creatorName": "Gustavo Soares"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign In",
+      "noAccount": "Don't have an account?",
+      "register": "Register"
+    },
+    "register": {
+      "title": "Create account",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "submit": "Register",
+      "hasAccount": "Already have an account?",
+      "login": "Sign In",
+      "invalidEmail": "Enter a valid email.",
+      "passwordMinLength": "At least 8 characters",
+      "passwordUppercase": "At least one uppercase letter",
+      "passwordLowercase": "At least one lowercase letter",
+      "passwordNumber": "At least one number",
+      "passwordSpecial": "At least one special character (!@#$...)"
+    }
+  },
+  "dashboard": {
+    "title": "My notes",
+    "search": "Search notes and folders...",
+    "folders": "Folders",
+    "notes": "Notes",
+    "newFolder": "New folder",
+    "newNote": "New note",
+    "create": "Create",
+    "folderName": "Folder name",
+    "folderPassword": "Folder password",
+    "noteTitle": "Note title",
+    "noteContent": "Content",
+    "notePassword": "Note password",
+    "selectFolder": "Folder (optional)",
+    "noFolder": "None — standalone note",
+    "backToNotes": "Back",
+    "createNoteInFolder": "New note",
+    "emptyNotes": "No notes yet.",
+    "emptyFolders": "No folders yet.",
+    "createFirst": "Create your first note or folder.",
+    "logout": "Log out"
+  },
+  "notes": {
+    "enterPassword": "Enter the password to unlock this note.",
+    "password": "Password",
+    "unlock": "Unlock",
+    "edit": "Edit",
+    "editNote": "Edit note",
+    "deleteTitle": "Delete note",
+    "deleteMessage": "Are you sure you want to delete this note? This action cannot be undone.",
+    "copy": "Copy",
+    "moveToFolder": "Move to folder",
+    "removeFromFolder": "Remove from folder",
+    "moveWarning": "The note will be moved to the selected folder. The note's password will not change.",
+    "selectTarget": "Select a folder...",
+    "move": "Move"
+  },
+  "folders": {
+    "deleteTitle": "Delete folder",
+    "deleteMessage": "Are you sure you want to delete this folder and all its notes?",
+    "enterPassword": "Enter the password to access this folder.",
+    "password": "Folder password",
+    "open": "Open folder"
+  },
+  "toasts": {
+    "noteCreated": "Note created successfully.",
+    "noteUpdated": "Note updated successfully.",
+    "noteDeleted": "Note deleted successfully.",
+    "folderCreated": "Folder created successfully.",
+    "folderDeleted": "Folder deleted successfully.",
+    "copiedToClipboard": "Content copied!",
+    "noteMoved": "Note moved successfully.",
+    "noteRemovedFromFolder": "Note removed from folder.",
+    "loginSuccess": "Login successful.",
+    "registerSuccess": "Account created successfully."
+  },
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "loading": "Loading...",
+    "save": "Save",
+    "delete": "Delete"
+  },
+  "errors": {
+    "invalidCredentials": "Invalid email or password.",
+    "emailInUse": "This email is already in use.",
+    "wrongPassword": "Incorrect password.",
+    "passwordMismatch": "Passwords do not match.",
+    "network": "Connection error. Try again."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "message": "The page you are looking for does not exist.",
+    "back": "Back to home"
+  }
+}

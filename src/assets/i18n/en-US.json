@@ -28,6 +28,8 @@
   },
   "footer": {
     "links": "Links",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
     "copyright": "MyCriptoNote. All rights reserved.",
     "createdBy": "Created by ",
     "creatorName": "Gustavo Soares"
@@ -54,7 +56,12 @@
       "passwordUppercase": "At least one uppercase letter",
       "passwordLowercase": "At least one lowercase letter",
       "passwordNumber": "At least one number",
-      "passwordSpecial": "At least one special character (!@#$...)"
+      "passwordSpecial": "At least one special character (!@#$...)",
+      "acceptTerms": "I have read and agree to the",
+      "privacyPolicy": "Privacy Policy",
+      "and": "and the",
+      "termsOfUse": "Terms of Use",
+      "mustAcceptTerms": "You must accept the terms to continue."
     }
   },
   "dashboard": {
@@ -111,7 +118,9 @@
     "noteMoved": "Note moved successfully.",
     "noteRemovedFromFolder": "Note removed from folder.",
     "loginSuccess": "Login successful.",
-    "registerSuccess": "Account created successfully."
+    "registerSuccess": "Account created successfully.",
+    "accountDeleted": "Account deleted successfully.",
+    "dataExported": "Data exported successfully."
   },
   "common": {
     "cancel": "Cancel",
@@ -119,18 +128,99 @@
     "close": "Close",
     "loading": "Loading...",
     "save": "Save",
-    "delete": "Delete"
+    "delete": "Delete",
+    "back": "Back"
   },
   "errors": {
     "invalidCredentials": "Invalid email or password.",
     "emailInUse": "This email is already in use.",
     "wrongPassword": "Incorrect password.",
     "passwordMismatch": "Passwords do not match.",
-    "network": "Connection error. Try again."
+    "network": "Connection error. Try again.",
+    "registrationFailed": "Unable to complete registration.",
+    "tooManyRequests": "Too many attempts. Please wait a moment."
   },
   "notFound": {
     "title": "Page not found",
     "message": "The page you are looking for does not exist.",
     "back": "Back to home"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated: February 2026",
+      "dataCollected": {
+        "title": "1. Data Collected",
+        "email": "Email (for authentication)",
+        "passwordHash": "Password hash (we never store passwords in plain text)",
+        "encryptedNotes": "Note content (encrypted — we have no access to the content)",
+        "noteTitles": "Note titles",
+        "metadata": "Creation date of account, notes and folders"
+      },
+      "purpose": {
+        "title": "2. Purpose of Processing",
+        "text": "Your data is used exclusively to provide the encrypted notes service: authentication, secure storage and synchronization of your notes across devices."
+      },
+      "legalBasis": {
+        "title": "3. Legal Basis (LGPD Art. 7)",
+        "text": "The processing of your personal data is based on contract execution (Art. 7, V) and the consent of the data subject (Art. 7, I), collected at the time of registration."
+      },
+      "zeroKnowledge": {
+        "title": "4. Zero-Knowledge Architecture",
+        "text": "MyCriptoNote uses AES-256 encryption with keys derived from your personal password. The server stores only encrypted data and never has access to the original content of your notes. Even in the case of unauthorized access to the database, the content remains unreadable."
+      },
+      "rights": {
+        "title": "5. Your Rights (LGPD Art. 18)",
+        "access": "Access to your personal data",
+        "export": "Export of your data in readable format (portability)",
+        "delete": "Complete deletion of your account and all associated data"
+      },
+      "retention": {
+        "title": "6. Data Retention",
+        "text": "Your data is kept as long as your account is active. When you request account deletion, all data is permanently removed from the database, including notes and folders."
+      },
+      "contact": {
+        "title": "7. Contact",
+        "text": "For privacy questions or to exercise your rights, contact us at: contact@mycriptonote.com"
+      }
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "lastUpdated": "Last updated: February 2026",
+      "acceptance": {
+        "title": "1. Acceptance of Terms",
+        "text": "By creating an account on MyCriptoNote, you agree to these Terms of Use and our Privacy Policy."
+      },
+      "service": {
+        "title": "2. Service Description",
+        "text": "MyCriptoNote is an encrypted notes service with Zero-Knowledge architecture. It allows you to create, store and manage notes protected by individual passwords, where the server never has access to decrypted content."
+      },
+      "account": {
+        "title": "3. User Account",
+        "text": "You are responsible for maintaining the security of your account and your note passwords. MyCriptoNote cannot recover lost note passwords due to the Zero-Knowledge architecture."
+      },
+      "encryption": {
+        "title": "4. Encryption and Responsibility",
+        "text": "Each note is encrypted with a password defined by you. If you lose the password for a note, there is no way to recover the content. MyCriptoNote is not responsible for inaccessible data due to lost passwords."
+      },
+      "responsibilities": {
+        "title": "5. User Responsibilities",
+        "passwords": "Keep your note and folder passwords in a safe place",
+        "content": "Do not use the service to store illegal content",
+        "security": "Keep your access credentials confidential"
+      },
+      "termination": {
+        "title": "6. Termination",
+        "text": "You can delete your account at any time. Account deletion permanently removes all associated data (notes, folders and personal information)."
+      },
+      "liability": {
+        "title": "7. Limitation of Liability",
+        "text": "MyCriptoNote is provided 'as is'. We do not guarantee uninterrupted availability of the service. Under no circumstances will we be liable for indirect damages arising from the use of the service."
+      },
+      "contact": {
+        "title": "8. Contact",
+        "text": "For questions about these terms, contact us at: contact@mycriptonote.com"
+      }
+    }
   }
 }

@@ -24,6 +24,20 @@
         <label for="confirmPassword">{{ 'auth.register.confirmPassword' | translate }}</label>
         <input id="confirmPassword" type="password" class="brutal-input" formControlName="confirmPassword" />
       </div>
+      <div class="field consent-field">
+        <label class="consent-label">
+          <input type="checkbox" formControlName="acceptTerms" />
+          <span>
+            {{ 'auth.register.acceptTerms' | translate }}
+            <a routerLink="/privacy">{{ 'auth.register.privacyPolicy' | translate }}</a>
+            {{ 'auth.register.and' | translate }}
+            <a routerLink="/terms">{{ 'auth.register.termsOfUse' | translate }}</a>.
+          </span>
+        </label>
+        @if (form.get('acceptTerms')?.touched && form.get('acceptTerms')?.hasError('required')) {
+          <span class="field-error">{{ 'auth.register.mustAcceptTerms' | translate }}</span>
+        }
+      </div>
       @if (error) {
         <p class="error-msg">{{ error | translate }}</p>
       }

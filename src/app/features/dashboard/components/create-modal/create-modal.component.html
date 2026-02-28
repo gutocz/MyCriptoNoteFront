@@ -1,0 +1,56 @@
+@if (isOpen()) {
+  <div class="overlay" (click)="hide()" (keydown.escape)="hide()" tabindex="-1">
+    <div class="brutal-modal modal" (click)="$event.stopPropagation()" role="dialog">
+      <div class="modal-header">
+        <h2>{{ type() === 'folder' ? ('dashboard.newFolder' | translate) : ('dashboard.newNote' | translate) }}</h2>
+        <button type="button" class="close-btn" (click)="hide()" [attr.aria-label]="'common.close' | translate">&times;</button>
+      </div>
+      @if (type() === 'folder') {
+        <form [formGroup]="folderForm" (ngSubmit)="submitFolder()">
+          <div class="field">
+            <label for="folder-name">{{ 'dashboard.folderName' | translate }}</label>
+            <input id="folder-name" type="text" class="brutal-input" formControlName="name" />
+          </div>
+          <div class="field">
+            <label for="folder-password">{{ 'dashboard.folderPassword' | translate }}</label>
+            <input id="folder-password" type="password" class="brutal-input" formControlName="password" />
+          </div>
+          <div class="actions">
+            <button type="button" class="brutal-btn brutal-btn-secondary" (click)="hide()">{{ 'common.cancel' | translate }}</button>
+            <button type="submit" class="brutal-btn" [disabled]="loading()">{{ loading() ? ('common.loading' | translate) : ('common.save' | translate) }}</button>
+          </div>
+        </form>
+      } @else {
+        <form [formGroup]="noteForm" (ngSubmit)="submitNote()">
+          <div class="field">
+            <label for="note-title">{{ 'dashboard.noteTitle' | translate }}</label>
+            <input id="note-title" type="text" class="brutal-input" formControlName="title" />
+          </div>
+          <div class="field">
+            <label for="note-content">{{ 'dashboard.noteContent' | translate }}</label>
+            <textarea id="note-content" class="brutal-input" formControlName="content" rows="4"></textarea>
+          </div>
+          @if (folders().length > 0 && !preselectedFolderId()) {
+            <div class="field">
+              <label for="note-folder">{{ 'dashboard.selectFolder' | translate }}</label>
+              <select id="note-folder" class="brutal-input" formControlName="folderId">
+                <option value="">{{ 'dashboard.noFolder' | translate }}</option>
+                @for (f of folders(); track f.id) {
+                  <option [value]="f.id">{{ f.name }}</option>
+                }
+              </select>
+            </div>
+          }
+          <div class="field">
+            <label for="note-password">{{ 'dashboard.notePassword' | translate }}</label>
+            <input id="note-password" type="password" class="brutal-input" formControlName="password" />
+          </div>
+          <div class="actions">
+            <button type="button" class="brutal-btn brutal-btn-secondary" (click)="hide()">{{ 'common.cancel' | translate }}</button>
+            <button type="submit" class="brutal-btn" [disabled]="loading()">{{ loading() ? ('common.loading' | translate) : ('common.save' | translate) }}</button>
+          </div>
+        </form>
+      }
+    </div>
+  </div>
+}

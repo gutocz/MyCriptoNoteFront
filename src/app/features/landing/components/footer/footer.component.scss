@@ -1,0 +1,40 @@
+@use 'styles/variables' as *;
+
+.footer {
+  padding: 2rem 1.5rem;
+  border-top: $border-width solid $color-border;
+  text-align: center;
+  font-size: 0.875rem;
+  color: $color-text;
+
+  &__legal {
+    margin-bottom: 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  &__legal-link {
+    color: inherit;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+
+  &__legal-sep {
+    margin: 0 0.5rem;
+    opacity: 0.5;
+  }
+
+  &__creator {
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    opacity: 0.85;
+  }
+
+  &__creator-link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

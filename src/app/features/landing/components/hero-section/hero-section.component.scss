@@ -1,0 +1,28 @@
+@use 'styles/variables' as *;
+
+.hero {
+  padding: 4rem 1.5rem;
+}
+
+.content {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.text h1 {
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.illustration img {
+  max-width: 100%;
+  height: auto;
+}

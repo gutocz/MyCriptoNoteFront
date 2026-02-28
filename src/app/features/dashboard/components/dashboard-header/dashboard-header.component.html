@@ -1,0 +1,10 @@
+<header class="header">
+  <a routerLink="/notes" class="logo">
+    <img src="assets/images/logo.svg" alt="MCN" width="140" height="42" />
+  </a>
+  <div class="actions">
+    <app-language-selector />
+    <span class="email">{{ email }}</span>
+    <button type="button" class="brutal-btn brutal-btn-secondary" (click)="logout()">{{ 'dashboard.logout' | translate }}</button>
+  </div>
+</header>

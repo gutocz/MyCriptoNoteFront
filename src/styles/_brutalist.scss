@@ -1,0 +1,98 @@
+@use 'variables' as *;
+@use 'animations' as *;
+
+@mixin brutal-border {
+  border: $border-width solid $color-border;
+  border-radius: $border-radius;
+}
+
+@mixin brutal-shadow {
+  box-shadow: $shadow-solid;
+}
+
+@mixin brutal-shadow-lg {
+  box-shadow: $shadow-solid-lg;
+}
+
+.brutal-card {
+  @include brutal-border;
+  @include brutal-shadow;
+  background: $color-white;
+  padding: 1.25rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: $shadow-solid-lg;
+    border-color: $color-accent-purple;
+  }
+}
+
+.brutal-btn {
+  @include brutal-border;
+  @include brutal-shadow;
+  font-family: $font-sans;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  @include cursor-pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  background: $color-black;
+  color: $color-white;
+  &:hover {
+    background: $color-accent-lime;
+    color: $color-black;
+    box-shadow: 6px 6px 0px $color-black;
+    transform: translate(-1px, -1px);
+  }
+  &:focus-visible {
+    outline: 2px solid $color-accent-purple;
+    outline-offset: 2px;
+  }
+}
+
+.brutal-btn-secondary {
+  background: $color-white;
+  color: $color-black;
+  &:hover {
+    background: $color-black;
+    color: $color-white;
+  }
+}
+
+.brutal-input {
+  @include brutal-border;
+  @include brutal-shadow;
+  font-family: $font-sans;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  &:focus {
+    outline: none;
+    border-color: $color-accent-purple;
+    box-shadow: $shadow-offset $shadow-offset 0px $color-accent-purple;
+  }
+}
+
+.brutal-btn-danger {
+  background: #e53e3e;
+  color: $color-white;
+  &:hover {
+    background: #c53030;
+    color: $color-white;
+    box-shadow: 6px 6px 0px $color-black;
+    transform: translate(-1px, -1px);
+  }
+}
+
+.brutal-modal {
+  @include brutal-border;
+  @include brutal-shadow-lg;
+  background: $color-white;
+  padding: 1.5rem;
+  max-width: 90vw;
+  animation: scale-in 0.25s ease-out;
+}
+
+.clickable {
+  @include cursor-pointer;
+}

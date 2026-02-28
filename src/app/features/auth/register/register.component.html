@@ -1,0 +1,53 @@
+<div class="register-page">
+  <div class="brutal-card card">
+    <h1>{{ 'auth.register.title' | translate }}</h1>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="field">
+        <label for="email">{{ 'auth.register.email' | translate }}</label>
+        <input id="email" type="email" class="brutal-input" formControlName="email" />
+        @if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+          <span class="field-error">{{ 'auth.register.invalidEmail' | translate }}</span>
+        }
+      </div>
+      <div class="field">
+        <label for="password">{{ 'auth.register.password' | translate }}</label>
+        <input id="password" type="password" class="brutal-input" formControlName="password" />
+        <ul class="password-rules" [class.touched]="form.get('password')?.touched">
+          <li [class.valid]="hasMinLength">{{ 'auth.register.passwordMinLength' | translate }}</li>
+          <li [class.valid]="hasUppercase">{{ 'auth.register.passwordUppercase' | translate }}</li>
+          <li [class.valid]="hasLowercase">{{ 'auth.register.passwordLowercase' | translate }}</li>
+          <li [class.valid]="hasNumber">{{ 'auth.register.passwordNumber' | translate }}</li>
+          <li [class.valid]="hasSpecial">{{ 'auth.register.passwordSpecial' | translate }}</li>
+        </ul>
+      </div>
+      <div class="field">
+        <label for="confirmPassword">{{ 'auth.register.confirmPassword' | translate }}</label>
+        <input id="confirmPassword" type="password" class="brutal-input" formControlName="confirmPassword" />
+      </div>
+      <div class="field consent-field">
+        <label class="consent-label">
+          <input type="checkbox" formControlName="acceptTerms" />
+          <span>
+            {{ 'auth.register.acceptTerms' | translate }}
+            <a routerLink="/privacy">{{ 'auth.register.privacyPolicy' | translate }}</a>
+            {{ 'auth.register.and' | translate }}
+            <a routerLink="/terms">{{ 'auth.register.termsOfUse' | translate }}</a>.
+          </span>
+        </label>
+        @if (form.get('acceptTerms')?.touched && form.get('acceptTerms')?.hasError('required')) {
+          <span class="field-error">{{ 'auth.register.mustAcceptTerms' | translate }}</span>
+        }
+      </div>
+      @if (error) {
+        <p class="error-msg">{{ error | translate }}</p>
+      }
+      <button type="submit" class="brutal-btn" [disabled]="loading">
+        {{ loading ? ('common.loading' | translate) : ('auth.register.submit' | translate) }}
+      </button>
+    </form>
+    <p class="footer-msg">
+      {{ 'auth.register.hasAccount' | translate }}
+      <a routerLink="/login">{{ 'auth.register.login' | translate }}</a>
+    </p>
+  </div>
+</div>

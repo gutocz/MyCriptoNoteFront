@@ -1,0 +1,27 @@
+@use 'styles/variables' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: $border-width solid $color-border;
+  background: $color-bg;
+}
+
+.logo {
+  font-weight: 700;
+  color: $color-black;
+  text-decoration: none;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.email {
+  font-size: 0.875rem;
+  color: $color-text;
+}

@@ -1,0 +1,9 @@
+<div class="search-bar">
+  <input
+    type="search"
+    class="brutal-input"
+    [value]="value()"
+    (input)="onInput($event)"
+    [placeholder]="'dashboard.search' | translate"
+  />
+</div>

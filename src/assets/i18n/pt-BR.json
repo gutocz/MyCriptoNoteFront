@@ -1,0 +1,226 @@
+{
+  "navbar": {
+    "features": "Recursos",
+    "howItWorks": "Como funciona",
+    "security": "Segurança",
+    "signIn": "Entrar"
+  },
+  "hero": {
+    "headline": "Suas notas, só suas.",
+    "subtitle": "Criptografia Zero-Knowledge. Crie notas e pastas protegidas por senha. Nem nós conseguimos ler.",
+    "cta": "Criar conta grátis"
+  },
+  "features": {
+    "title": "Recursos",
+    "encryption": { "title": "Criptografia", "desc": "Cada nota com sua própria senha." },
+    "folders": { "title": "Pastas", "desc": "Agrupe notas com uma camada extra de segurança." },
+    "zeroKnowledge": { "title": "Zero-Knowledge", "desc": "O servidor nunca vê o conteúdo." }
+  },
+  "howItWorks": {
+    "title": "Como funciona",
+    "step1": { "title": "Crie sua conta", "desc": "E-mail e senha. Simples." },
+    "step2": { "title": "Crie notas", "desc": "Título, conteúdo e uma senha por nota." },
+    "step3": { "title": "Desbloqueie quando precisar", "desc": "Digite a senha e leia ou edite." }
+  },
+  "security": {
+    "title": "Segurança",
+    "text": "Zero-Knowledge com AES. Suas senhas nunca saem do seu dispositivo para descriptografar. O backend só armazena dados criptografados."
+  },
+  "footer": {
+    "links": "Links",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Uso",
+    "copyright": "MyCriptoNote. Todos os direitos reservados.",
+    "createdBy": "Criado por ",
+    "creatorName": "Gustavo Soares"
+  },
+  "auth": {
+    "login": {
+      "title": "Entrar",
+      "email": "E-mail",
+      "password": "Senha",
+      "submit": "Entrar",
+      "noAccount": "Não tem conta?",
+      "register": "Cadastre-se"
+    },
+    "register": {
+      "title": "Criar conta",
+      "email": "E-mail",
+      "password": "Senha",
+      "confirmPassword": "Confirmar senha",
+      "submit": "Cadastrar",
+      "hasAccount": "Já tem conta?",
+      "login": "Entrar",
+      "invalidEmail": "Digite um e-mail válido.",
+      "passwordMinLength": "Mínimo de 8 caracteres",
+      "passwordUppercase": "Pelo menos uma letra maiúscula",
+      "passwordLowercase": "Pelo menos uma letra minúscula",
+      "passwordNumber": "Pelo menos um número",
+      "passwordSpecial": "Pelo menos um caractere especial (!@#$...)",
+      "acceptTerms": "Li e concordo com a",
+      "privacyPolicy": "Política de Privacidade",
+      "and": "e os",
+      "termsOfUse": "Termos de Uso",
+      "mustAcceptTerms": "Você deve aceitar os termos para continuar."
+    }
+  },
+  "dashboard": {
+    "title": "Minhas notas",
+    "search": "Buscar notas e pastas...",
+    "folders": "Pastas",
+    "notes": "Notas",
+    "newFolder": "Nova pasta",
+    "newNote": "Nova nota",
+    "create": "Criar",
+    "folderName": "Nome da pasta",
+    "folderPassword": "Senha da pasta",
+    "noteTitle": "Título da nota",
+    "noteContent": "Conteúdo",
+    "notePassword": "Senha da nota",
+    "selectFolder": "Pasta (opcional)",
+    "noFolder": "Nenhuma — nota avulsa",
+    "backToNotes": "Voltar",
+    "createNoteInFolder": "Nova nota",
+    "emptyNotes": "Nenhuma nota ainda.",
+    "emptyFolders": "Nenhuma pasta ainda.",
+    "createFirst": "Crie sua primeira nota ou pasta.",
+    "logout": "Sair"
+  },
+  "notes": {
+    "enterPassword": "Digite a senha para desbloquear esta nota.",
+    "password": "Senha",
+    "unlock": "Desbloquear",
+    "edit": "Editar",
+    "editNote": "Editar nota",
+    "deleteTitle": "Excluir nota",
+    "deleteMessage": "Tem certeza que deseja excluir esta nota? Essa ação não pode ser desfeita.",
+    "copy": "Copiar",
+    "moveToFolder": "Mover para pasta",
+    "removeFromFolder": "Tirar da pasta",
+    "moveWarning": "A nota será movida para a pasta selecionada. A senha da nota não será alterada.",
+    "selectTarget": "Selecione uma pasta...",
+    "move": "Mover"
+  },
+  "folders": {
+    "deleteTitle": "Excluir pasta",
+    "deleteMessage": "Tem certeza que deseja excluir esta pasta e todas as suas notas?",
+    "enterPassword": "Digite a senha para acessar esta pasta.",
+    "password": "Senha da pasta",
+    "open": "Abrir pasta"
+  },
+  "toasts": {
+    "noteCreated": "Nota criada com sucesso.",
+    "noteUpdated": "Nota atualizada com sucesso.",
+    "noteDeleted": "Nota excluída com sucesso.",
+    "folderCreated": "Pasta criada com sucesso.",
+    "folderDeleted": "Pasta excluída com sucesso.",
+    "copiedToClipboard": "Conteúdo copiado!",
+    "noteMoved": "Nota movida com sucesso.",
+    "noteRemovedFromFolder": "Nota removida da pasta.",
+    "loginSuccess": "Login realizado com sucesso.",
+    "registerSuccess": "Conta criada com sucesso.",
+    "accountDeleted": "Conta excluída com sucesso.",
+    "dataExported": "Dados exportados com sucesso."
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "close": "Fechar",
+    "loading": "Carregando...",
+    "save": "Salvar",
+    "delete": "Excluir",
+    "back": "Voltar"
+  },
+  "errors": {
+    "invalidCredentials": "E-mail ou senha inválidos.",
+    "emailInUse": "Este e-mail já está em uso.",
+    "wrongPassword": "Senha incorreta.",
+    "passwordMismatch": "As senhas não conferem.",
+    "network": "Erro de conexão. Tente novamente.",
+    "registrationFailed": "Não foi possível completar o registro.",
+    "tooManyRequests": "Muitas tentativas. Aguarde um momento."
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "message": "A página que você procura não existe.",
+    "back": "Voltar ao início"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Política de Privacidade",
+      "lastUpdated": "Última atualização: fevereiro de 2026",
+      "dataCollected": {
+        "title": "1. Dados Coletados",
+        "email": "E-mail (para autenticação)",
+        "passwordHash": "Hash da senha de acesso (nunca armazenamos a senha em texto plano)",
+        "encryptedNotes": "Conteúdo das notas (criptografado — não temos acesso ao conteúdo)",
+        "noteTitles": "Títulos das notas",
+        "metadata": "Data de criação de conta, notas e pastas"
+      },
+      "purpose": {
+        "title": "2. Finalidade do Tratamento",
+        "text": "Seus dados são utilizados exclusivamente para prover o serviço de notas criptografadas: autenticação, armazenamento seguro e sincronização das suas notas entre dispositivos."
+      },
+      "legalBasis": {
+        "title": "3. Base Legal (LGPD Art. 7°)",
+        "text": "O tratamento dos seus dados pessoais é realizado com base na execução de contrato (Art. 7°, V) e no consentimento do titular (Art. 7°, I), coletado no momento do registro."
+      },
+      "zeroKnowledge": {
+        "title": "4. Arquitetura Zero-Knowledge",
+        "text": "O MyCriptoNote utiliza criptografia AES-256 com chaves derivadas da sua senha pessoal. O servidor armazena apenas dados criptografados e nunca tem acesso ao conteúdo original das suas notas. Mesmo em caso de acesso não autorizado ao banco de dados, o conteúdo permanece ilegível."
+      },
+      "rights": {
+        "title": "5. Seus Direitos (LGPD Art. 18)",
+        "access": "Acesso aos seus dados pessoais",
+        "export": "Exportação dos seus dados em formato legível (portabilidade)",
+        "delete": "Exclusão completa da sua conta e todos os dados associados"
+      },
+      "retention": {
+        "title": "6. Retenção de Dados",
+        "text": "Seus dados são mantidos enquanto sua conta estiver ativa. Ao solicitar a exclusão da conta, todos os dados são removidos permanentemente do banco de dados, incluindo notas e pastas."
+      },
+      "contact": {
+        "title": "7. Contato",
+        "text": "Para questões sobre privacidade ou exercício dos seus direitos, entre em contato pelo e-mail: contato@mycriptonote.com"
+      }
+    },
+    "terms": {
+      "title": "Termos de Uso",
+      "lastUpdated": "Última atualização: fevereiro de 2026",
+      "acceptance": {
+        "title": "1. Aceitação dos Termos",
+        "text": "Ao criar uma conta no MyCriptoNote, você concorda com estes Termos de Uso e com a nossa Política de Privacidade."
+      },
+      "service": {
+        "title": "2. Descrição do Serviço",
+        "text": "O MyCriptoNote é um serviço de notas criptografadas com arquitetura Zero-Knowledge. Permite criar, armazenar e gerenciar notas protegidas por senha individual, onde o servidor nunca tem acesso ao conteúdo descriptografado."
+      },
+      "account": {
+        "title": "3. Conta do Usuário",
+        "text": "Você é responsável por manter a segurança da sua conta e das senhas das suas notas. O MyCriptoNote não tem como recuperar senhas de notas perdidas devido à arquitetura Zero-Knowledge."
+      },
+      "encryption": {
+        "title": "4. Criptografia e Responsabilidade",
+        "text": "Cada nota é criptografada com uma senha definida por você. Se você perder a senha de uma nota, não há forma de recuperar o conteúdo. O MyCriptoNote não se responsabiliza por dados inacessíveis devido a senhas perdidas."
+      },
+      "responsibilities": {
+        "title": "5. Responsabilidades do Usuário",
+        "passwords": "Guardar suas senhas de notas e pastas em local seguro",
+        "content": "Não utilizar o serviço para armazenar conteúdo ilegal",
+        "security": "Manter suas credenciais de acesso em sigilo"
+      },
+      "termination": {
+        "title": "6. Encerramento",
+        "text": "Você pode excluir sua conta a qualquer momento. A exclusão da conta remove permanentemente todos os dados associados (notas, pastas e informações pessoais)."
+      },
+      "liability": {
+        "title": "7. Limitação de Responsabilidade",
+        "text": "O MyCriptoNote é fornecido 'como está'. Não garantimos disponibilidade ininterrupta do serviço. Em nenhuma hipótese seremos responsáveis por danos indiretos decorrentes do uso do serviço."
+      },
+      "contact": {
+        "title": "8. Contato",
+        "text": "Para questões sobre estes termos, entre em contato pelo e-mail: contato@mycriptonote.com"
+      }
+    }
+  }
+}

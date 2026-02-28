@@ -24,7 +24,8 @@ export class RegisterComponent {
       Validators.minLength(8),
       Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).+$/)
     ]],
-    confirmPassword: ['', Validators.required]
+    confirmPassword: ['', Validators.required],
+    acceptTerms: [false, Validators.requiredTrue]
   });
 
   loading = false;
@@ -42,7 +43,7 @@ export class RegisterComponent {
 
   submit(): void {
     this.error = '';
-    const { confirmPassword, ...payload } = this.form.getRawValue();
+    const { confirmPassword, acceptTerms, ...payload } = this.form.getRawValue();
     if (payload.password !== confirmPassword) {
       this.error = 'errors.passwordMismatch';
       return;
@@ -53,7 +54,7 @@ export class RegisterComponent {
       next: () => this.router.navigate(['/notes']),
       error: (err) => {
         this.loading = false;
-        this.error = err.error?.error || 'errors.emailInUse';
+        this.error = err.error?.error || 'errors.registrationFailed';
       },
       complete: () => { this.loading = false; }
     });

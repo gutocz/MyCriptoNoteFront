@@ -35,8 +35,18 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
+  deleteAccount(): Observable<void> {
+    return this.http.delete<void>(`${this.base}/account`);
+  }
+
+  exportMyData(): Observable<unknown> {
+    return this.http.get(`${this.base}/my-data`);
+  }
+
   isAuthenticated(): boolean {
-    return !!this.getToken();
+    const token = this.getToken();
+    if (!token) return false;
+    return !this.isTokenExpired(token);
   }
 
   getToken(): string | null {
@@ -45,6 +55,15 @@ export class AuthService {
 
   getEmail(): string | null {
     return localStorage.getItem(EMAIL_KEY);
+  }
+
+  private isTokenExpired(token: string): boolean {
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.exp * 1000 < Date.now();
+    } catch {
+      return true;
+    }
   }
 
   private setSession(res: AuthResponse): void {

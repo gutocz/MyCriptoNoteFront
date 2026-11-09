@@ -111,3 +111,24 @@
   font-weight: 600;
   color: $color-accent-purple;
 }
+
+.google-or {
+  margin: 1rem 0 0.75rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.google-button-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+
+  > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,38 @@
+<div class="account-page">
+  <div class="brutal-card card">
+    <h1>{{ 'account.title' | translate }}</h1>
+    <p class="email">{{ email }}</p>
+
+    <h2>{{ 'account.linkGoogle.title' | translate }}</h2>
+
+    @if (accountReady) {
+      @if (googleLinked) {
+        <p class="linked-badge">{{ 'account.linkGoogle.alreadyLinked' | translate }}</p>
+      } @else {
+        <p class="description">{{ 'account.linkGoogle.description' | translate }}</p>
+
+        <label class="field-label" for="link-password">{{ 'account.linkGoogle.passwordLabel' | translate }}</label>
+        <input
+          id="link-password"
+          class="field-input"
+          type="password"
+          name="linkPassword"
+          [(ngModel)]="linkPassword"
+          autocomplete="current-password"
+        />
+
+        @if (error) {
+          <p class="error-msg">{{ error | translate }}</p>
+        }
+
+        <div class="google-button-wrapper">
+          <div #googleButton></div>
+        </div>
+      }
+    }
+
+    <a routerLink="/notes" class="brutal-btn brutal-btn-secondary back-btn">
+      {{ 'account.backToNotes' | translate }}
+    </a>
+  </div>
+</div>

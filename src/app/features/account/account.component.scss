@@ -1,0 +1,83 @@
+@use 'styles/variables' as *;
+
+.account-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+}
+
+h1 {
+  margin-bottom: 0.75rem;
+}
+
+.email {
+  margin: 0 0 1.25rem 0;
+  color: #666;
+  word-break: break-word;
+}
+
+h2 {
+  margin: 0 0 0.5rem 0;
+}
+
+.description {
+  margin: 0 0 1rem 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.field-label {
+  display: block;
+  margin: 0 0 0.35rem 0;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.field-input {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 1rem 0;
+  padding: 0.65rem 0.75rem;
+  border: $border-width solid $color-border;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.error-msg {
+  color: #c00;
+  font-size: 0.875rem;
+  margin: 0 0 1rem 0;
+}
+
+.linked-badge {
+  margin: 0 0 1.25rem 0;
+  padding: 0.75rem 1rem;
+  border: 2px solid currentColor;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.google-button-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 1.25rem;
+
+  > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.back-btn {
+  width: 100%;
+  text-align: center;
+}

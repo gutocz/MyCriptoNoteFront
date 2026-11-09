@@ -5,7 +5,11 @@ on:
     branches: [main]
 
 jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+
   deploy:
+    needs: ci
     runs-on: ubuntu-latest
     steps:
       - name: Deploy na VPS via SSH
@@ -18,7 +22,8 @@ jobs:
           script: |
             set -e
             cd /var/www/mycriptonote/frontend
-            git pull origin main
+            git pull --ff-only origin main
+            test "$(git rev-parse HEAD)" = "${{ github.sha }}" || { echo "A main mudou desde o CI; deploy cancelado."; exit 1; }
             npm ci
             npm run build
             mkdir -p /var/www/mycriptonote/frontend-dist

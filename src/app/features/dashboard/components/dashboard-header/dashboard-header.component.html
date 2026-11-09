@@ -5,6 +5,7 @@
   <div class="actions">
     <app-language-selector />
     <span class="email">{{ email }}</span>
+    <a routerLink="/account" class="brutal-btn brutal-btn-secondary">{{ 'dashboard.account' | translate }}</a>
     <button type="button" class="brutal-btn brutal-btn-secondary" (click)="logout()">{{ 'dashboard.logout' | translate }}</button>
   </div>
 </header>

@@ -41,7 +41,8 @@
       "password": "Senha",
       "submit": "Entrar",
       "noAccount": "Não tem conta?",
-      "register": "Cadastre-se"
+      "register": "Cadastre-se",
+      "orSeparator": "ou"
     },
     "register": {
       "title": "Criar conta",
@@ -51,6 +52,7 @@
       "submit": "Cadastrar",
       "hasAccount": "Já tem conta?",
       "login": "Entrar",
+      "orSeparator": "ou",
       "invalidEmail": "Digite um e-mail válido.",
       "passwordMinLength": "Mínimo de 8 caracteres",
       "passwordUppercase": "Pelo menos uma letra maiúscula",
@@ -63,6 +65,16 @@
       "termsOfUse": "Termos de Uso",
       "mustAcceptTerms": "Você deve aceitar os termos para continuar."
     }
+  },
+  "account": {
+    "title": "Conta",
+    "linkGoogle": {
+      "title": "Vincular conta com Google",
+      "description": "Após vincular, o login com senha ficará desabilitado. Para entrar, use seu Google.",
+      "alreadyLinked": "Conta Google vinculada. Use o botão do Google para entrar.",
+      "passwordLabel": "Senha atual da conta"
+    },
+    "backToNotes": "Voltar para notas"
   },
   "dashboard": {
     "title": "Minhas notas",
@@ -84,6 +96,7 @@
     "emptyNotes": "Nenhuma nota ainda.",
     "emptyFolders": "Nenhuma pasta ainda.",
     "createFirst": "Crie sua primeira nota ou pasta.",
+    "account": "Conta",
     "logout": "Sair"
   },
   "notes": {
@@ -120,7 +133,8 @@
     "loginSuccess": "Login realizado com sucesso.",
     "registerSuccess": "Conta criada com sucesso.",
     "accountDeleted": "Conta excluída com sucesso.",
-    "dataExported": "Dados exportados com sucesso."
+    "dataExported": "Dados exportados com sucesso.",
+    "googleLinkedSuccess": "Conta Google vinculada com sucesso."
   },
   "common": {
     "cancel": "Cancelar",
@@ -136,6 +150,13 @@
     "emailInUse": "Este e-mail já está em uso.",
     "wrongPassword": "Senha incorreta.",
     "passwordMismatch": "As senhas não conferem.",
+    "passwordLoginDisabledForGoogle": "Esta conta usa login com Google. Use o botão Entrar com Google.",
+    "googleLinkPasswordRequired": "Informe sua senha atual para vincular o Google.",
+    "googleEmailMismatch": "O e-mail da conta Google precisa ser o mesmo desta conta.",
+    "googleAlreadyLinked": "Esta conta já está vinculada a outro login Google.",
+    "googleAccountAlreadyLinked": "Essa conta Google já está vinculada a outro usuário.",
+    "googleLoginFailed": "Não foi possível entrar com o Google. Se você já tem conta com senha, entre com e-mail e senha e vincule o Google em Conta.",
+    "googleNotConfigured": "Login com Google indisponível. Configure o ClientId do Google.",
     "network": "Erro de conexão. Tente novamente.",
     "registrationFailed": "Não foi possível completar o registro.",
     "tooManyRequests": "Muitas tentativas. Aguarde um momento."

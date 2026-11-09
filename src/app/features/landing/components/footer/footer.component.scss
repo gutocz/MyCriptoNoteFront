@@ -1,11 +1,12 @@
 @use 'styles/variables' as *;
 
 .footer {
-  padding: 2rem 1.5rem;
+  padding: 4rem clamp(1.5rem, 5vw, 6rem);
   border-top: $border-width solid $color-border;
-  text-align: center;
+  text-align: left;
   font-size: 0.875rem;
-  color: $color-text;
+  color: $color-white;
+  background: #191919;
 
   &__legal {
     margin-bottom: 0.75rem;

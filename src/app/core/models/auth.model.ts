@@ -7,6 +7,7 @@ export interface AuthResponse {
 export interface MeResponse {
   email: string;
   authProvider: string;
+  hasPassword: boolean;
 }
 
 export interface LoginRequest {

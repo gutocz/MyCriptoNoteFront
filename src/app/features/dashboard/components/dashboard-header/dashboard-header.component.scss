@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
-  border-bottom: $border-width solid $color-border;
+  padding: .8rem clamp(1rem, 4vw, 4rem);
+  border-bottom: 2px solid $color-border;
   background: $color-bg;
 }
 
@@ -25,3 +25,4 @@
   font-size: 0.875rem;
   color: $color-text;
 }
+@media(max-width:650px) { .email { display:none; } .actions { gap:.5rem; } .logo img { width:110px; height:auto; } }

@@ -6,10 +6,15 @@
 }
 
 .main {
-  max-width: 1024px;
+  max-width: 1360px;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 4rem);
 }
+
+.workspace-intro { background:#1a1a1a; color:#f5f0eb; padding:clamp(2rem,4vw,4rem); margin-bottom:2.5rem; min-height:250px; display:flex; align-items:center; justify-content:space-between; overflow:hidden; }
+.workspace-intro span { color:$color-accent-lime; font:700 .7rem $font-mono; letter-spacing:.06em; }.workspace-intro h1 { margin:1.5rem 0 .75rem; font-size:clamp(2.7rem,5vw,5rem); line-height:1; letter-spacing:-.07em; }.workspace-intro p { margin:0; color:#d4d1cb; }.workspace-symbol { color:$color-accent-purple; font-size:clamp(5rem,12vw,10rem); line-height:1; animation:spin 25s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+@media(max-width:600px) { .workspace-symbol { font-size:4rem; opacity:.5; }.workspace-intro { gap:1rem; } }
 
 .toolbar {
   display: flex;
@@ -20,11 +25,15 @@
 }
 
 .section {
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .section h2 {
   margin-bottom: 1rem;
+  padding-bottom: .8rem;
+  border-bottom: 2px solid $color-black;
+  letter-spacing: -.04em;
+  font-size:clamp(1.7rem,3vw,2.5rem);
 }
 
 .card-grid {

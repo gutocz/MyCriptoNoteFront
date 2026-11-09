@@ -1,17 +1,28 @@
 @use 'styles/variables' as *;
 
 .security {
-  padding: 4rem 1.5rem;
+  padding: clamp(5rem, 10vw, 10rem) clamp(1.5rem, 8vw, 8rem);
   background: $color-bg-dark;
   color: $color-text-inverse;
+  position:relative;
+  overflow:hidden;
 }
+.security-label { display:flex; justify-content:space-between; border-bottom:1px solid #777; padding-bottom:1rem; margin-bottom:5rem; font:700 .75rem $font-mono; color:#c6c5c0; }
+.security-icon { position:absolute; right:8%; bottom:5%; font-size:clamp(8rem,20vw,18rem); line-height:1; color:$color-accent-purple; opacity:.7; animation:rotate 30s linear infinite; }
+.security h2,.security p { position:relative; z-index:1; }
+@keyframes rotate { to { transform:rotate(360deg); } }
 
 .security h2 {
   margin-bottom: 1rem;
   color: $color-white;
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 1;
+  letter-spacing: -.06em;
 }
 
 .security p {
   max-width: 640px;
-  margin: 0 auto;
+  margin: 2rem 0 0;
+  font-size: 1.2rem;
+  line-height: 1.7;
 }

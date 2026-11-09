@@ -1,5 +1,6 @@
 <div class="account-page">
   <div class="brutal-card card">
+    <div class="account-index"><span>MYCRIPTONOTE / ACCOUNT</span><span>✳</span></div>
     <h1>{{ 'account.title' | translate }}</h1>
     <p class="email">{{ email }}</p>
 
@@ -8,6 +9,13 @@
     @if (accountReady) {
       @if (googleLinked) {
         <p class="linked-badge">{{ 'account.linkGoogle.alreadyLinked' | translate }}</p>
+        @if (!hasPassword) {
+          <p class="description">{{ 'account.linkGoogle.addPassword' | translate }}</p>
+          <label class="field-label" for="new-local-password">{{ 'account.linkGoogle.newPassword' | translate }}</label>
+          <div class="password-field"><input id="new-local-password" class="field-input" [type]="showPassword ? 'text' : 'password'" [(ngModel)]="newPassword" autocomplete="new-password" /><button type="button" class="password-toggle" (click)="showPassword = !showPassword">{{ (showPassword ? 'password.hide' : 'password.show') | translate }}</button></div>
+          @if (error) { <p class="error-msg">{{ error | translate }}</p> }
+          <div class="google-button-wrapper"><div #googleButton></div></div>
+        }
       } @else {
         <p class="description">{{ 'account.linkGoogle.description' | translate }}</p>
 

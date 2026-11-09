@@ -1,28 +1,18 @@
 @use 'styles/variables' as *;
 
-.hero {
-  padding: 4rem 1.5rem;
-}
-
-.content {
-  max-width: 1024px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-
-.text h1 {
-  margin-bottom: 1rem;
-}
-
-.subtitle {
-  margin-bottom: 1.5rem;
-  font-size: 1.125rem;
-}
-
-.illustration img {
-  max-width: 100%;
-  height: auto;
-}
+:host { display: block; }
+.hero { position: relative; overflow: hidden; color: #f5f0eb; background: #191919; min-height: min(860px, 90vh); display: flex; flex-direction: column; padding: 2rem clamp(1.25rem, 5vw, 6rem); }
+.hero__grid { position: absolute; inset: 0; opacity: .12; pointer-events: none; background-image: linear-gradient(#aaa 1px, transparent 1px), linear-gradient(90deg, #aaa 1px, transparent 1px); background-size: 12.5% 110px; mask-image: linear-gradient(transparent, #000 25%, #000); }
+.hero__top, .hero__footer { position: relative; display: flex; justify-content: space-between; gap: 1rem; color: #bcbab5; font: 700 .65rem $font-mono; letter-spacing: .08em; }
+.content { position: relative; margin: auto 0; max-width: 1250px; padding: 5rem 0; z-index: 1; }
+.eyebrow { color: $color-accent-lime; font: 700 .75rem $font-mono; letter-spacing: .08em; }
+h1 { max-width: 1100px; margin: 1.7rem 0 2.5rem; font-size: clamp(3.7rem, 8.5vw, 9rem); line-height: .91; letter-spacing: -.075em; }
+.hero__bottom { display: flex; align-items: end; gap: 3rem; flex-wrap: wrap; }
+.subtitle { max-width: 360px; color: #d2cfcb; line-height: 1.6; font-size: 1.1rem; margin: 0; }
+.hero__cta { display: inline-flex; gap: 4rem; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; color: #111; background: $color-accent-lime; border: 2px solid $color-accent-lime; text-decoration: none; font-weight: 700; transition: background .2s, color .2s, transform .2s; }
+.hero__cta:hover { background: transparent; color: $color-accent-lime; transform: translateY(-4px); }
+.hero__cta span { font-size: 1.5rem; }
+.hero__stamp { position: absolute; right: 6%; bottom: 12%; font-size: clamp(5rem, 14vw, 15rem); color: $color-accent-purple; line-height: 1; animation: rotate 28s linear infinite; }
+.hero__footer { padding-top: 1rem; border-top: 1px solid #555; }
+@keyframes rotate { to { transform: rotate(360deg); } }
+@media(max-width: 700px) { .hero { min-height: 720px; } .content { padding: 6rem 0; } h1 { font-size: clamp(3.5rem, 14vw, 6rem); } .hero__stamp { opacity: .3; bottom: 15%; } .hero__footer span:last-child { display:none; } }

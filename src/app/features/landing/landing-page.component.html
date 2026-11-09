@@ -1,6 +1,20 @@
 <app-navbar />
 <app-hero-section />
-<section id="features"><app-features-section /></section>
-<section id="how-it-works"><app-how-it-works-section /></section>
-<section id="security"><app-security-section /></section>
+<section id="features" class="reveal-on-scroll"><app-features-section /></section>
+<section class="showcase reveal-on-scroll">
+  <div class="showcase-copy">
+    <span class="showcase-kicker">02 / {{ 'landing.showcaseKicker' | translate }}</span>
+    <h2>{{ 'landing.showcaseTitle' | translate }}</h2>
+    <p>{{ 'landing.showcaseText' | translate }}</p>
+    <a routerLink="/register">{{ 'landing.showcaseLink' | translate }} <span>↗</span></a>
+  </div>
+  <div class="showcase-art" aria-hidden="true">
+    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+    <div class="note-preview"><div class="note-top"><span>MYCRIPTONOTE</span><span>✳</span></div><div class="note-line short"></div><div class="note-line"></div><div class="note-line"></div><div class="note-line half"></div><div class="note-bottom">✳ &nbsp; YOUR SPACE <span>↗</span></div></div>
+    <div class="showcase-badge">✳</div>
+  </div>
+</section>
+<section id="how-it-works" class="reveal-on-scroll"><app-how-it-works-section /></section>
+<section id="security" class="reveal-on-scroll"><app-security-section /></section>
+<section class="closing reveal-on-scroll"><span>MYCRIPTONOTE / ✳</span><h2>{{ 'landing.closingTitle' | translate }}</h2><a routerLink="/register">{{ 'hero.cta' | translate }} <span>↗</span></a></section>
 <app-footer />

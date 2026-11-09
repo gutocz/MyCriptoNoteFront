@@ -6,25 +6,54 @@
     "signIn": "Sign In"
   },
   "hero": {
-    "headline": "Your notes, only yours.",
-    "subtitle": "Zero-Knowledge encryption. Create notes and folders protected by password. Not even we can read them.",
+    "headline": "Your ideas deserve a safe place.",
+    "subtitle": "Organize notes into folders and protect each one with its own password.",
     "cta": "Create free account"
+  },
+  "landing": {
+    "showcaseKicker": "A SPACE TO THINK",
+    "showcaseTitle": "Less noise. More ideas.",
+    "showcaseText": "From quick ideas to important plans: keep what matters organized in one place.",
+    "showcaseLink": "Explore your space",
+    "closingTitle": "Everything starts with an idea.",
+    "authTitle": "A space to think freely.",
+    "authText": "Your ideas, your notes and your organization, all in one place.",
+    "dashboardTitle": "Your space for ideas.",
+    "dashboardText": "Organize what matters and pick up where you left off."
   },
   "features": {
     "title": "Features",
-    "encryption": { "title": "Encryption", "desc": "Each note with its own password." },
-    "folders": { "title": "Folders", "desc": "Group notes with an extra layer of security." },
-    "zeroKnowledge": { "title": "Zero-Knowledge", "desc": "The server never sees the content." }
+    "encryption": {
+      "title": "Encryption",
+      "desc": "Each note with its own password."
+    },
+    "folders": {
+      "title": "Folders",
+      "desc": "Group your notes in organized folders."
+    },
+    "zeroKnowledge": {
+      "title": "Your space, your rules",
+      "desc": "A password for each note, organized your way."
+    }
   },
   "howItWorks": {
     "title": "How it works",
-    "step1": { "title": "Create your account", "desc": "Email and password. Simple." },
-    "step2": { "title": "Create notes", "desc": "Title, content and a password per note." },
-    "step3": { "title": "Unlock when you need", "desc": "Enter the password and read or edit." }
+    "step1": {
+      "title": "Create your account",
+      "desc": "Email and password. Simple."
+    },
+    "step2": {
+      "title": "Create notes",
+      "desc": "Title, content and a password per note."
+    },
+    "step3": {
+      "title": "Unlock when you need",
+      "desc": "Enter the password and read or edit."
+    }
   },
   "security": {
     "title": "Security",
-    "text": "Zero-Knowledge with AES. Your passwords never leave your device to decrypt. The backend only stores encrypted data."
+    "text": "Notes are encrypted on the server before storage. Their content and password are sent to the server when encrypting or opening notes."
   },
   "footer": {
     "links": "Links",
@@ -70,9 +99,11 @@
     "title": "Account",
     "linkGoogle": {
       "title": "Connect account with Google",
-      "description": "After connecting, password login will be disabled. To sign in, use your Google account.",
-      "alreadyLinked": "Google account linked. Use Google sign-in to log in.",
-      "passwordLabel": "Current account password"
+      "description": "Link Google and continue signing in with your existing password.",
+      "alreadyLinked": "Google account linked. A local password may not be available for accounts linked before this update.",
+      "passwordLabel": "Current account password",
+      "addPassword": "Create an additional password and confirm with your linked Google account. Use at least 8 characters, uppercase, lowercase, a number and a symbol.",
+      "newPassword": "New sign-in password"
     },
     "backToNotes": "Back to notes"
   },
@@ -134,7 +165,8 @@
     "registerSuccess": "Account created successfully.",
     "accountDeleted": "Account deleted successfully.",
     "dataExported": "Data exported successfully.",
-    "googleLinkedSuccess": "Google account connected successfully."
+    "googleLinkedSuccess": "Google account connected successfully.",
+    "passwordAdded": "Sign-in password added."
   },
   "common": {
     "cancel": "Cancel",
@@ -159,7 +191,9 @@
     "googleNotConfigured": "Google login is unavailable. Configure the Google ClientId.",
     "network": "Connection error. Try again.",
     "registrationFailed": "Unable to complete registration.",
-    "tooManyRequests": "Too many attempts. Please wait a moment."
+    "tooManyRequests": "Too many attempts. Please wait a moment.",
+    "passwordPolicy": "Use at least 8 characters, uppercase, lowercase, a number and a symbol.",
+    "googlePasswordUnavailable": "An additional password cannot be created for this account."
   },
   "notFound": {
     "title": "Page not found",
@@ -174,7 +208,7 @@
         "title": "1. Data Collected",
         "email": "Email (for authentication)",
         "passwordHash": "Password hash (we never store passwords in plain text)",
-        "encryptedNotes": "Note content (encrypted — we have no access to the content)",
+        "encryptedNotes": "Note content stored in encrypted form",
         "noteTitles": "Note titles",
         "metadata": "Creation date of account, notes and folders"
       },
@@ -187,8 +221,8 @@
         "text": "The processing of your personal data is based on contract execution (Art. 7, V) and the consent of the data subject (Art. 7, I), collected at the time of registration."
       },
       "zeroKnowledge": {
-        "title": "4. Zero-Knowledge Architecture",
-        "text": "MyCriptoNote uses AES-256 encryption with keys derived from your personal password. The server stores only encrypted data and never has access to the original content of your notes. Even in the case of unauthorized access to the database, the content remains unreadable."
+        "title": "4. Protecting your notes",
+        "text": "The server receives note content and password to encrypt and open notes. Content is stored encrypted; this is not zero-knowledge protection."
       },
       "rights": {
         "title": "5. Your Rights (LGPD Art. 18)",
@@ -214,11 +248,11 @@
       },
       "service": {
         "title": "2. Service Description",
-        "text": "MyCriptoNote is an encrypted notes service with Zero-Knowledge architecture. It allows you to create, store and manage notes protected by individual passwords, where the server never has access to decrypted content."
+        "text": "MyCriptoNote lets you create and organize password-protected notes. Notes are encrypted on the server before storage."
       },
       "account": {
         "title": "3. User Account",
-        "text": "You are responsible for maintaining the security of your account and your note passwords. MyCriptoNote cannot recover lost note passwords due to the Zero-Knowledge architecture."
+        "text": "You are responsible for your account and note passwords. Lost note passwords cannot be recovered."
       },
       "encryption": {
         "title": "4. Encryption and Responsibility",
@@ -243,5 +277,9 @@
         "text": "For questions about these terms, contact us at: contact@mycriptonote.com"
       }
     }
+  },
+  "password": {
+    "show": "Show",
+    "hide": "Hide"
   }
 }

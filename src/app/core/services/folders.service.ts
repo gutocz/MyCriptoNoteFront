@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
+import { FolderGrantsService } from './folder-grants.service';
 import { environment } from '../../../environments/environment';
 import { FolderListItem, CreateFolderRequest, UnlockFolderRequest } from '../models/folder.model';
 
@@ -8,7 +9,7 @@ import { FolderListItem, CreateFolderRequest, UnlockFolderRequest } from '../mod
 export class FoldersService {
   private readonly base = `${environment.apiUrl}/folders`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private grants: FolderGrantsService) {}
 
   getAll(): Observable<FolderListItem[]> {
     return this.http.get<FolderListItem[]>(this.base);
@@ -19,7 +20,9 @@ export class FoldersService {
   }
 
   unlock(id: string, req: UnlockFolderRequest): Observable<void> {
-    return this.http.post<void>(`${this.base}/${id}/unlock`, req);
+    return this.http.post<{ grant: string }>(`${this.base}/${id}/unlock`, req).pipe(
+      tap(response => this.grants.remember(id, response.grant)), map(() => undefined)
+    );
   }
 
   delete(id: string): Observable<void> {

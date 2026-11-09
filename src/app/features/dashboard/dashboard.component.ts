@@ -51,6 +51,7 @@ export class DashboardComponent implements OnInit {
   noteModalOpen = signal(false);
 
   folderPasswordOpen = signal(false);
+  showFolderPassword = signal(false);
   folderPasswordLoading = signal(false);
   folderPasswordError = signal('');
   selectedFolder = signal<FolderListItem | null>(null);
@@ -126,6 +127,7 @@ export class DashboardComponent implements OnInit {
   onFolderClick(folder: FolderListItem): void {
     this.selectedFolder.set(folder);
     this.folderPasswordForm.reset();
+    this.showFolderPassword.set(false);
     this.folderPasswordError.set('');
     this.folderPasswordLoading.set(false);
     this.folderPasswordOpen.set(true);

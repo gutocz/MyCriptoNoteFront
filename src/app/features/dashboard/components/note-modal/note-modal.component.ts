@@ -30,6 +30,7 @@ export class NoteModalComponent {
   deleted = output<void>();
 
   state = signal<ModalState>('locked');
+  showPassword = signal(false);
   loading = signal(false);
   unlocked = signal<UnlockedNote | null>(null);
   error = signal('');
@@ -57,6 +58,7 @@ export class NoteModalComponent {
       const open = this.isOpen();
       untracked(() => {
         if (open) {
+          this.showPassword.set(false);
           this.state.set('locked');
           this.loading.set(false);
           this.unlocked.set(null);

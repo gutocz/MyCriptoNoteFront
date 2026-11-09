@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { AuthResponse, GoogleLinkRequest, GoogleLoginRequest, LoginRequest, MeResponse, RegisterRequest } from '../models/auth.model';
+import { FolderGrantsService } from './folder-grants.service';
+import { ToastrService } from 'ngx-toastr';
 
 const TOKEN_KEY = 'mcn_token';
 const EMAIL_KEY = 'mcn_email';
@@ -15,7 +17,9 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private grants: FolderGrantsService,
+    private toast: ToastrService
   ) {}
 
   login(req: LoginRequest): Observable<AuthResponse> {
@@ -38,11 +42,26 @@ export class AuthService {
 
   googleLink(req: GoogleLinkRequest): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.base}/google/link`, req).pipe(
-      tap((res) => this.setSession(res))
+      tap((res) => { this.grants.clear(); this.setSession(res); })
     );
   }
 
+  setGooglePassword(credential: string, password: string): Observable<void> {
+    return this.http.post<void>(`${this.base}/google/set-password`, { credential, password });
+  }
+
   logout(): void {
+    this.http.post<void>(`${this.base}/logout`, {}).subscribe({
+      next: () => this.clearSession(),
+      error: (err) => {
+        if (err.status === 401) this.clearSession();
+        else this.toast.error('Não foi possível encerrar a sessão. Verifique sua conexão e tente novamente.');
+      }
+    });
+  }
+
+  clearSession(): void {
+    this.grants.clear();
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(EMAIL_KEY);
     localStorage.removeItem(AUTH_PROVIDER_KEY);
@@ -72,30 +91,15 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    const token = this.getToken();
-    if (!token) return false;
-    return !this.isTokenExpired(token);
-  }
-
-  getToken(): string | null {
-    return localStorage.getItem(TOKEN_KEY);
+    return !!localStorage.getItem(EMAIL_KEY);
   }
 
   getEmail(): string | null {
     return localStorage.getItem(EMAIL_KEY);
   }
 
-  private isTokenExpired(token: string): boolean {
-    try {
-      const payload = JSON.parse(atob(token.split('.')[1]));
-      return payload.exp * 1000 < Date.now();
-    } catch {
-      return true;
-    }
-  }
-
   private setSession(res: AuthResponse): void {
-    localStorage.setItem(TOKEN_KEY, res.token);
+    localStorage.removeItem(TOKEN_KEY);
     localStorage.setItem(EMAIL_KEY, res.email);
     const provider = res.authProvider?.trim() || 'local';
     localStorage.setItem(AUTH_PROVIDER_KEY, provider);

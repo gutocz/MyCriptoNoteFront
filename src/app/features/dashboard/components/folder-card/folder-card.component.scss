@@ -2,13 +2,18 @@
   display: block;
   color: inherit;
   user-select: none;
+  min-height:150px;
+  padding:1.5rem;
+  background:#e2d7ff;
+  border-width:2px;
+  box-shadow:none;
 }
 
 .folder-card-header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .folder-card-header h3 {
@@ -19,3 +24,4 @@
   font-size: 0.875rem;
   opacity: 0.8;
 }
+.folder-card:hover { background:#d4ff2b; box-shadow:6px 6px 0 #111; border-color:#111; }

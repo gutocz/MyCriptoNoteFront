@@ -25,21 +25,20 @@ export class AccountComponent implements OnInit {
   accountReady = false;
   googleLinked = false;
   linkPassword = '';
+  hasPassword = false;
+  newPassword = '';
+  showPassword = false;
 
   @ViewChild('googleButton', { static: false })
   private googleButton?: ElementRef<HTMLElement>;
 
   ngOnInit(): void {
-    if (this.auth.getAuthProvider() === 'google') {
-      this.googleLinked = true;
-      this.accountReady = true;
-      return;
-    }
     this.auth.getMe().subscribe({
       next: (me) => {
         this.googleLinked = me.authProvider === 'google';
+        this.hasPassword = me.hasPassword;
         this.accountReady = true;
-        if (!this.googleLinked) {
+        if (!this.googleLinked || !this.hasPassword) {
           setTimeout(() => this.initGoogle(), 0);
         }
       },
@@ -51,7 +50,7 @@ export class AccountComponent implements OnInit {
   }
 
   private initGoogle(): void {
-    if (this.googleLinked) return;
+    if (this.googleLinked && this.hasPassword) return;
     const clientId = environment.googleClientId;
     const maxAttempts = 20;
     let attempts = 0;
@@ -75,6 +74,19 @@ export class AccountComponent implements OnInit {
           if (!credential) return;
           this.ngZone.run(() => {
             if (this.loading) return;
+            if (this.googleLinked) {
+              if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}$/.test(this.newPassword)) {
+                this.error = 'errors.passwordPolicy';
+                return;
+              }
+              this.loading = true;
+              this.error = '';
+              this.auth.setGooglePassword(credential, this.newPassword).subscribe({
+                next: () => { this.hasPassword = true; this.loading = false; this.newPassword = ''; this.toast.success(this.translate.instant('toasts.passwordAdded')); },
+                error: (err) => { this.loading = false; this.error = err.error?.error || 'errors.googleLoginFailed'; }
+              });
+              return;
+            }
             const password = this.linkPassword;
             if (!password.trim()) {
               this.error = 'errors.googleLinkPasswordRequired';

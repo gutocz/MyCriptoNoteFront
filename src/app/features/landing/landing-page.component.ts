@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -24,4 +24,25 @@ import { FooterComponent } from './components/footer/footer.component';
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss'
 })
-export class LandingPageComponent {}
+export class LandingPageComponent implements AfterViewInit, OnDestroy {
+  private readonly element = inject(ElementRef<HTMLElement>);
+  private observer?: IntersectionObserver;
+
+  ngAfterViewInit(): void {
+    if (typeof IntersectionObserver === 'undefined' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    this.observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-visible');
+          this.observer?.unobserve(entry.target);
+        }
+      }
+    }, { threshold: 0.12 });
+    this.element.nativeElement.querySelectorAll('.reveal-on-scroll').forEach((item: Element) => {
+      item.classList.add('reveal-ready');
+      this.observer?.observe(item);
+    });
+  }
+
+  ngOnDestroy(): void { this.observer?.disconnect(); }
+}

@@ -1,6 +1,7 @@
 <div class="dashboard">
   <app-dashboard-header />
   <main class="main">
+    <div class="workspace-intro"><div><span>MYCRIPTONOTE / WORKSPACE ✳</span><h1>{{ 'landing.dashboardTitle' | translate }}</h1><p>{{ 'landing.dashboardText' | translate }}</p></div><div class="workspace-symbol" aria-hidden="true">✳</div></div>
     <div class="toolbar">
       <app-search-bar [value]="search()" (valueChange)="onSearch($event)" />
     </div>
@@ -85,7 +86,7 @@
         <form [formGroup]="folderPasswordForm" (ngSubmit)="submitFolderPassword()">
           <div class="field">
             <label for="folder-unlock-pw">{{ 'folders.password' | translate }}</label>
-            <input id="folder-unlock-pw" type="password" class="brutal-input" formControlName="password" autocomplete="off" [class.input-error]="folderPasswordError()" />
+            <div class="password-field"><input id="folder-unlock-pw" [type]="showFolderPassword() ? 'text' : 'password'" class="brutal-input" formControlName="password" autocomplete="off" [class.input-error]="folderPasswordError()" /><button type="button" class="password-toggle" (click)="showFolderPassword.set(!showFolderPassword())">{{ (showFolderPassword() ? 'password.hide' : 'password.show') | translate }}</button></div>
             @if (folderPasswordError()) {
               <span class="error-text">{{ folderPasswordError() }}</span>
             }

@@ -6,15 +6,25 @@
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
+  background:#1a1a1a;
+  background-image:linear-gradient(#ffffff10 1px,transparent 1px),linear-gradient(90deg,#ffffff10 1px,transparent 1px);
+  background-size:120px 120px;
 }
 
 .card {
   width: 100%;
-  max-width: 520px;
+  max-width: 620px;
+  padding:clamp(1.5rem,4vw,3.5rem);
+  border-width:2px;
+  box-shadow:9px 9px 0 $color-accent-purple;
 }
+.card:hover { transform:none; border-color:#111; box-shadow:9px 9px 0 $color-accent-purple; }
+.account-index { display:flex; justify-content:space-between; border-bottom:2px solid #111; padding-bottom:1rem; margin-bottom:2rem; font:700 .7rem $font-mono; }.account-index span:last-child { color:#8762e7; font-size:1.5rem; }
 
 h1 {
   margin-bottom: 0.75rem;
+  font-size:clamp(2.5rem,4vw,4rem);
+  letter-spacing:-.07em;
 }
 
 .email {
@@ -24,7 +34,7 @@ h1 {
 }
 
 h2 {
-  margin: 0 0 0.5rem 0;
+  margin: 2.5rem 0 0.5rem 0;
 }
 
 .description {

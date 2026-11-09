@@ -1,14 +1,16 @@
 @use 'styles/variables' as *;
 
 .how {
-  padding: 4rem 1.5rem;
-  max-width: 1024px;
+  padding: clamp(5rem, 9vw, 9rem) clamp(1.5rem, 5vw, 6rem);
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 .how h2 {
-  margin-bottom: 2rem;
-  text-align: center;
+  margin-bottom: 4rem;
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 1;
+  letter-spacing: -.06em;
 }
 
 .steps {
@@ -19,11 +21,14 @@
 
 .step .num {
   display: block;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   color: $color-accent-purple;
   margin-bottom: 0.5rem;
 }
+.section-label { display:flex; justify-content:space-between; border-bottom:2px solid #111; padding-bottom:1rem; margin-bottom:3rem; font:700 .75rem $font-mono; }
+.step { min-height:270px; padding:2rem 0; border-top:2px solid #111; transition:transform .3s; }.step:hover { transform:translateY(-8px); }
+.step h3 { margin:4rem 0 1rem; font-size:1.6rem; letter-spacing:-.04em; }.step p { line-height:1.5; }
 
 @media (max-width: 768px) {
   .steps { grid-template-columns: 1fr; }

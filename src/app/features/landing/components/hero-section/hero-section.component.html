@@ -1,12 +1,14 @@
 <section class="hero">
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="hero__top"><span>MYCRIPTONOTE / 01</span><span>PRIVATE BY DESIGN ✳</span></div>
   <div class="content">
-    <div class="text">
-      <h1>{{ 'hero.headline' | translate }}</h1>
+    <p class="eyebrow">✳ &nbsp; YOUR THOUGHTS. YOUR SPACE.</p>
+    <h1>{{ 'hero.headline' | translate }}</h1>
+    <div class="hero__bottom">
       <p class="subtitle">{{ 'hero.subtitle' | translate }}</p>
-      <a routerLink="/register" class="brutal-btn">{{ 'hero.cta' | translate }}</a>
-    </div>
-    <div class="illustration">
-      <img src="assets/images/hero-illustration.svg" alt="" width="520" height="390" />
+      <a routerLink="/register" class="hero__cta">{{ 'hero.cta' | translate }} <span>↗</span></a>
     </div>
   </div>
+  <div class="hero__stamp" aria-hidden="true">✳</div>
+  <div class="hero__footer"><span>SCROLL TO EXPLORE</span><span>↓</span><span>THOUGHTFULLY ORGANIZED / 2026</span></div>
 </section>

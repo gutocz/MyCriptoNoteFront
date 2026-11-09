@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NotesService } from '../../../core/services/notes.service';
 import { FoldersService } from '../../../core/services/folders.service';
+import { FolderGrantsService } from '../../../core/services/folder-grants.service';
 import { NoteListItem } from '../../../core/models/note.model';
 import { FolderListItem } from '../../../core/models/folder.model';
 import { DashboardHeaderComponent } from '../components/dashboard-header/dashboard-header.component';
@@ -31,6 +32,7 @@ export class FolderViewComponent implements OnInit {
   private router = inject(Router);
   private notesService = inject(NotesService);
   private foldersService = inject(FoldersService);
+  private grants = inject(FolderGrantsService);
 
   folder = signal<FolderListItem | null>(null);
   folders = signal<FolderListItem[]>([]);
@@ -52,7 +54,7 @@ export class FolderViewComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (!id) {
+    if (!id || !this.grants.has(id)) {
       this.router.navigate(['/notes']);
       return;
     }

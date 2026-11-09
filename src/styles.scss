@@ -32,3 +32,17 @@ button,
 body.cursor-click {
   cursor: url('/assets/cursors/pointer_click.svg'), pointer !important;
 }
+
+.password-field { position: relative; display: flex; align-items: stretch; }
+.password-field input { min-width: 0; width: 100%; padding-right: 6.2rem; }
+.password-toggle { position: absolute; right: .35rem; top: 50%; transform: translateY(-50%); border: 0; background: transparent; padding: .55rem; font: 700 .75rem $font-mono; text-decoration: underline; }
+.password-toggle:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+
+.reveal-ready { opacity: 0; transform: translateY(64px); transition: opacity .85s ease, transform .85s cubic-bezier(.2,.7,.2,1); }
+.reveal-ready.reveal-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .reveal-ready { opacity: 1; transform: none; }
+}

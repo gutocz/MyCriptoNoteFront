@@ -1,5 +1,12 @@
 <div class="login-page">
+  <aside class="auth-intro">
+    <a routerLink="/" class="auth-brand">MCN<span>✳</span></a>
+    <div><span class="auth-index">MYCRIPTONOTE / 01</span><h2>{{ 'landing.authTitle' | translate }}</h2><p>{{ 'landing.authText' | translate }}</p></div>
+    <span class="auth-signature">YOUR THOUGHTS. YOUR SPACE. &nbsp; ↗</span>
+  </aside>
   <div class="brutal-card card">
+    <a routerLink="/" class="back-home">← MYCRIPTONOTE</a>
+    <div class="card-index">01 / {{ 'auth.login.title' | translate }} <span>✳</span></div>
     <h1>{{ 'auth.login.title' | translate }}</h1>
     <form [formGroup]="form" (ngSubmit)="submit()">
       <div class="field">

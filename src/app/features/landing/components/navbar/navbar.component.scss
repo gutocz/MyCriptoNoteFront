@@ -37,3 +37,10 @@
   align-items: center;
   gap: 1rem;
 }
+
+@media (max-width: 760px) {
+  .navbar { padding: .75rem 1rem; gap: .5rem; }
+  .links { display: none; }
+  .logo img { width: 135px; height: auto; }
+  .actions { gap: .5rem; }
+}

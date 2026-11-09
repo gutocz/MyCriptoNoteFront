@@ -28,6 +28,7 @@ export class CreateModalComponent {
   created = output<void>();
 
   loading = signal(false);
+  showPassword = signal(false);
 
   constructor() {
     effect(() => {
@@ -35,6 +36,7 @@ export class CreateModalComponent {
       const folderId = this.preselectedFolderId();
       untracked(() => {
         if (open) {
+          this.showPassword.set(false);
           this.folderForm.reset();
           this.noteForm.reset();
           this.loading.set(false);

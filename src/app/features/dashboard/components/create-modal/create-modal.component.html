@@ -1,6 +1,6 @@
 @if (isOpen()) {
-  <div class="overlay" (click)="hide()" (keydown.escape)="hide()" tabindex="-1">
-    <div class="brutal-modal modal" (click)="$event.stopPropagation()" role="dialog">
+  <div class="overlay" (keydown.escape)="hide()" tabindex="-1">
+    <div class="brutal-modal modal" role="dialog" aria-modal="true">
       <div class="modal-header">
         <h2>{{ type() === 'folder' ? ('dashboard.newFolder' | translate) : ('dashboard.newNote' | translate) }}</h2>
         <button type="button" class="close-btn" (click)="hide()" [attr.aria-label]="'common.close' | translate">&times;</button>
@@ -13,7 +13,7 @@
           </div>
           <div class="field">
             <label for="folder-password">{{ 'dashboard.folderPassword' | translate }}</label>
-            <input id="folder-password" type="password" class="brutal-input" formControlName="password" />
+            <div class="password-field"><input id="folder-password" [type]="showPassword() ? 'text' : 'password'" class="brutal-input" formControlName="password" /><button type="button" class="password-toggle" (click)="showPassword.set(!showPassword())">{{ (showPassword() ? 'password.hide' : 'password.show') | translate }}</button></div>
           </div>
           <div class="actions">
             <button type="button" class="brutal-btn brutal-btn-secondary" (click)="hide()">{{ 'common.cancel' | translate }}</button>
@@ -43,7 +43,7 @@
           }
           <div class="field">
             <label for="note-password">{{ 'dashboard.notePassword' | translate }}</label>
-            <input id="note-password" type="password" class="brutal-input" formControlName="password" />
+            <div class="password-field"><input id="note-password" [type]="showPassword() ? 'text' : 'password'" class="brutal-input" formControlName="password" /><button type="button" class="password-toggle" (click)="showPassword.set(!showPassword())">{{ (showPassword() ? 'password.hide' : 'password.show') | translate }}</button></div>
           </div>
           <div class="actions">
             <button type="button" class="brutal-btn brutal-btn-secondary" (click)="hide()">{{ 'common.cancel' | translate }}</button>

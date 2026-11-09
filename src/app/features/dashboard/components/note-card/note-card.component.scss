@@ -3,6 +3,11 @@
 .note-card {
   @include cursor-pointer;
   user-select: none;
+  min-height:150px;
+  padding:1.5rem;
+  background:#fffefa;
+  border-width:2px;
+  box-shadow:none;
 }
 
 .note-card-header {
@@ -32,3 +37,4 @@
   font-size: 0.8125rem;
   opacity: 0.6;
 }
+.note-card:hover { background:#d4ff2b; box-shadow:6px 6px 0 #111; border-color:#111; }

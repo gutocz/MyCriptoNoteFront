@@ -17,6 +17,12 @@
         {{ loading ? ('common.loading' | translate) : ('auth.login.submit' | translate) }}
       </button>
     </form>
+
+    <div class="google-or">{{ 'auth.login.orSeparator' | translate }}</div>
+    <div class="google-button-wrapper">
+      <div #googleButton></div>
+    </div>
+
     <p class="footer-msg">
       {{ 'auth.login.noAccount' | translate }}
       <a routerLink="/register">{{ 'auth.login.register' | translate }}</a>

@@ -41,7 +41,8 @@
       "password": "Password",
       "submit": "Sign In",
       "noAccount": "Don't have an account?",
-      "register": "Register"
+      "register": "Register",
+      "orSeparator": "or"
     },
     "register": {
       "title": "Create account",
@@ -51,6 +52,7 @@
       "submit": "Register",
       "hasAccount": "Already have an account?",
       "login": "Sign In",
+      "orSeparator": "or",
       "invalidEmail": "Enter a valid email.",
       "passwordMinLength": "At least 8 characters",
       "passwordUppercase": "At least one uppercase letter",
@@ -63,6 +65,16 @@
       "termsOfUse": "Terms of Use",
       "mustAcceptTerms": "You must accept the terms to continue."
     }
+  },
+  "account": {
+    "title": "Account",
+    "linkGoogle": {
+      "title": "Connect account with Google",
+      "description": "After connecting, password login will be disabled. To sign in, use your Google account.",
+      "alreadyLinked": "Google account linked. Use Google sign-in to log in.",
+      "passwordLabel": "Current account password"
+    },
+    "backToNotes": "Back to notes"
   },
   "dashboard": {
     "title": "My notes",
@@ -84,6 +96,7 @@
     "emptyNotes": "No notes yet.",
     "emptyFolders": "No folders yet.",
     "createFirst": "Create your first note or folder.",
+    "account": "Account",
     "logout": "Log out"
   },
   "notes": {
@@ -120,7 +133,8 @@
     "loginSuccess": "Login successful.",
     "registerSuccess": "Account created successfully.",
     "accountDeleted": "Account deleted successfully.",
-    "dataExported": "Data exported successfully."
+    "dataExported": "Data exported successfully.",
+    "googleLinkedSuccess": "Google account connected successfully."
   },
   "common": {
     "cancel": "Cancel",
@@ -136,6 +150,13 @@
     "emailInUse": "This email is already in use.",
     "wrongPassword": "Incorrect password.",
     "passwordMismatch": "Passwords do not match.",
+    "passwordLoginDisabledForGoogle": "This account uses Google login. Use the Sign in with Google button.",
+    "googleLinkPasswordRequired": "Enter your current password to link Google.",
+    "googleEmailMismatch": "The Google account email must match this account.",
+    "googleAlreadyLinked": "This account is already linked to a different Google sign-in.",
+    "googleAccountAlreadyLinked": "This Google account is already linked to another user.",
+    "googleLoginFailed": "Could not sign in with Google. If you already have a password account, sign in with email and password, then link Google in Account.",
+    "googleNotConfigured": "Google login is unavailable. Configure the Google ClientId.",
     "network": "Connection error. Try again.",
     "registrationFailed": "Unable to complete registration.",
     "tooManyRequests": "Too many attempts. Please wait a moment."

@@ -8,6 +8,7 @@ export const routes: Routes = [
   { path: 'register', loadComponent: () => import('./features/auth/register/register.component').then(m => m.RegisterComponent), canActivate: [guestGuard] },
   { path: 'privacy', loadComponent: () => import('./features/legal/privacy-policy.component').then(m => m.PrivacyPolicyComponent) },
   { path: 'terms', loadComponent: () => import('./features/legal/terms-of-use.component').then(m => m.TermsOfUseComponent) },
+  { path: 'account', loadComponent: () => import('./features/account/account.component').then(m => m.AccountComponent), canActivate: [authGuard] },
   { path: 'notes', loadComponent: () => import('./features/dashboard/dashboard.component').then(m => m.DashboardComponent), canActivate: [authGuard] },
   { path: 'notes/folder/:id', loadComponent: () => import('./features/dashboard/folder-view/folder-view.component').then(m => m.FolderViewComponent), canActivate: [authGuard] },
   { path: '**', loadComponent: () => import('./features/not-found/not-found.component').then(m => m.NotFoundComponent) }

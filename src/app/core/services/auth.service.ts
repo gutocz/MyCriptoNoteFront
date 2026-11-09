@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { AuthResponse, LoginRequest, RegisterRequest } from '../models/auth.model';
+import { AuthResponse, GoogleLinkRequest, GoogleLoginRequest, LoginRequest, MeResponse, RegisterRequest } from '../models/auth.model';
 
 const TOKEN_KEY = 'mcn_token';
 const EMAIL_KEY = 'mcn_email';
+const AUTH_PROVIDER_KEY = 'mcn_auth_provider';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -29,9 +30,22 @@ export class AuthService {
     );
   }
 
+  googleLogin(req: GoogleLoginRequest): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.base}/google`, req).pipe(
+      tap((res) => this.setSession(res))
+    );
+  }
+
+  googleLink(req: GoogleLinkRequest): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.base}/google/link`, req).pipe(
+      tap((res) => this.setSession(res))
+    );
+  }
+
   logout(): void {
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(EMAIL_KEY);
+    localStorage.removeItem(AUTH_PROVIDER_KEY);
     this.router.navigate(['/']);
   }
 
@@ -41,6 +55,20 @@ export class AuthService {
 
   exportMyData(): Observable<unknown> {
     return this.http.get(`${this.base}/my-data`);
+  }
+
+  getMe(): Observable<MeResponse> {
+    return this.http.get<MeResponse>(`${this.base}/me`).pipe(
+      tap((me) => this.persistAuthProvider(me.authProvider))
+    );
+  }
+
+  getAuthProvider(): string | null {
+    return localStorage.getItem(AUTH_PROVIDER_KEY);
+  }
+
+  persistAuthProvider(authProvider: string): void {
+    localStorage.setItem(AUTH_PROVIDER_KEY, authProvider);
   }
 
   isAuthenticated(): boolean {
@@ -69,5 +97,7 @@ export class AuthService {
   private setSession(res: AuthResponse): void {
     localStorage.setItem(TOKEN_KEY, res.token);
     localStorage.setItem(EMAIL_KEY, res.email);
+    const provider = res.authProvider?.trim() || 'local';
+    localStorage.setItem(AUTH_PROVIDER_KEY, provider);
   }
 }
